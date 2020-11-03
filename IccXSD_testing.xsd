@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="IccProfile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Header"/>
+        <xs:element ref="Tags"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+ 
+ <!-- Profile Header -->
+  <xs:element name="Header">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PreferredCMMType"/>
+        <xs:element ref="ProfileVersion"/>
+        <xs:element ref="ProfileDeviceClass"/>
+        <xs:element ref="DataColourSpace"/>
+        <xs:element ref="PCS"/>
+        <xs:element ref="CreationDateTime"/>
+        <xs:element ref="ProfileFileSignature"/>
+        <xs:element ref="PrimaryPlatform"/>
+        <xs:element ref="ProfileFlags"/>
+        <xs:element ref="DeviceManufacturer"/>
+        <xs:element ref="DeviceModel"/>
+        <xs:element ref="DeviceAttributes"/>
+        <xs:element ref="RenderingIntent"/>
+        <xs:element ref="PCSIlluminant"/>
+        <xs:element ref="ProfileCreator"/>
+        <xs:element ref="ProfileID"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="SpectralPCS"/>
+          <xs:element ref="SpectralRange"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="BiSpectralRange"/>
+        <xs:element ref="MCS"/>
+        <xs:element ref="ProfileDeviceSubClass"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="PreferredCMMType">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="ADBE"/>
+        <xs:enumeration value="ACMS"/>
+        <xs:enumeration value="appl"/>
+        <xs:enumeration value="CCMS"/>
+        <xs:enumeration value="UCCM"/>
+        <xs:enumeration value="UCMS"/>
+        <xs:enumeration value="EFI "/>
+        <xs:enumeration value="FF  "/>
+        <xs:enumeration value="EXAC"/>
+        <xs:enumeration value="HCMM"/>
+        <xs:enumeration value="argl"/>
+        <xs:enumeration value="LgoS"/>	
+        <xs:enumeration value="HDM "/>
+        <xs:enumeration value="lcms"/>
+        <xs:enumeration value="KCMS"/>
+        <xs:enumeration value="MCML"/>
+        <xs:enumeration value="WCS "/>
+        <xs:enumeration value="SIGN"/>
+        <xs:enumeration value="ONYX"/>
+        <xs:enumeration value="RICC"/>				  
+        <xs:enumeration value="RGMS"/>
+        <xs:enumeration value="SICC"/>
+        <xs:enumeration value="TCMM"/>
+        <xs:enumeration value="32BT"/>
+        <xs:enumeration value="vivo"/>
+        <xs:enumeration value="WTG "/>	
+        <xs:enumeration value="zc00"/>	
+        <xs:enumeration value=""/>
+      </xs:restriction>	
+    </xs:simpleType>	
+  </xs:element>
+  
+  <xs:element name="ProfileVersion" type="xs:decimal"/>
+  
+  <xs:element name="ProfileDeviceClass">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="scnr"/>
+        <xs:enumeration value="mntr"/>
+        <xs:enumeration value="prtr"/>
+        <xs:enumeration value="link"/>
+        <xs:enumeration value="spac"/>
+        <xs:enumeration value="abst"/>
+        <xs:enumeration value="nmcl"/>
+        <xs:enumeration value="cenc"/>
+        <xs:enumeration value="mid "/>
+        <xs:enumeration value="mlink"/>
+        <xs:enumeration value="mvis"/>				  
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  
+  <xs:element name="DataColourSpace">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="XYZ "/>
+        <xs:enumeration value="Lab "/>
+        <xs:enumeration value="Luv "/>
+        <xs:enumeration value="YCbr"/>
+        <xs:enumeration value="Yxy "/>
+        <xs:enumeration value="LMS "/>
+        <xs:enumeration value="RGB "/>
+        <xs:enumeration value="GRAY"/>
+        <xs:enumeration value="HSV "/>
+        <xs:enumeration value="HLS "/>
+        <xs:enumeration value="CMYK"/>
+        <xs:enumeration value="CMY "/>
+        <xs:enumeration value="2CLR"/>
+        <xs:enumeration value="3CLR"/>
+        <xs:enumeration value="4CLR"/>
+        <xs:enumeration value="5CLR"/>
+        <xs:enumeration value="6CLR"/>
+        <xs:enumeration value="7CLR"/>
+        <xs:enumeration value="8CLR"/>
+        <xs:enumeration value="9CLR"/>
+        <xs:enumeration value="ACLR"/>
+        <xs:enumeration value="BCLR"/>
+        <xs:enumeration value="CCLR"/>
+        <xs:enumeration value="DCLR"/>
+        <xs:enumeration value="ECLR"/>
+        <xs:enumeration value="FCLR"/>
+        <xs:enumeration value=""/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  
+  <xs:element name="PCS">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="XYZ "/>
+        <xs:enumeration value="Lab "/>
+        <xs:enumeration value=""/>
+        </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  
+  <xs:element name="CreationDateTime" type="xs:dateTime"/>
+  
+  <xs:element name="ProfileFileSignature" type="xs:string" fixed="acsp"/>
+  
+  <xs:element name="PrimaryPlatform">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="APPL"/>
+        <xs:enumeration value="MSFT"/>
+        <xs:enumeration value="SGI "/>
+        <xs:enumeration value="SUNW"/>
+        <xs:enumeration value=""/>			  
+      </xs:restriction>
+    </xs:simpleType>				
+   </xs:element>
+  
+  <xs:element name="ProfileFlags">
+    <xs:complexType>
+      <xs:attribute name="EmbeddedInFile" use="required" type="xs:boolean"/>
+      <xs:attribute name="UseWithEmbeddedDataOnly" use="required" type="xs:boolean"/>
+      <xs:attribute name="MCSNeedsSubset" use="required" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="DeviceManufacturer">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:length value="4"/>	  
+      </xs:restriction>
+    </xs:simpleType>	
+  </xs:element>
+  
+  <xs:element name="DeviceModel">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:length value="4"/>	  
+      </xs:restriction>
+    </xs:simpleType>	
+  </xs:element>
+  
+  <xs:element name="DeviceAttributes">
+    <xs:complexType>
+      <xs:attribute name="GlossyOrMatte" use="required" type="xs:boolean"/>
+      <xs:attribute name="MediaColour" use="required" type="xs:boolean"/>
+      <xs:attribute name="MediaPolarity" use="required" type="xs:boolean"/>
+      <xs:attribute name="ReflectiveOrTransparency" use="required" type="xs:boolean"/>
+      <xs:attribute name="VendorSpecific" type="Hex8Byte"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="RenderingIntent">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Perceptual"/>
+        <xs:enumeration value="Relative Colorimetric"/>
+        <xs:enumeration value="Saturation"/>
+        <xs:enumeration value="Absolute Colorimetric"/>		  
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  
+  <xs:element name="PCSIlluminant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="XYZNumber"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="ProfileCreator">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:length value="4"/>	  
+      </xs:restriction>
+    </xs:simpleType>	
+  </xs:element>
+  
+  <xs:element name="ProfileID" type="xs:string"/>
+  
+  <xs:element name="SpectralPCS">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:length value="6"/>	  
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  
+  <xs:element name="SpectralRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Wavelengths"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="BiSpectralRange">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element ref="Wavelengths"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="MCS">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:length value="6"/>	  
+      </xs:restriction>
+    </xs:simpleType>	
+  </xs:element>
+  
+  <xs:element name="ProfileDeviceSubClass" type="xs:string"/>
+  
+  <!-- Profile Tags -->
+  <xs:element name="Tags"> 
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="profileDescriptionTag"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="AToB3Tag"/>
+          <xs:element ref="BToA3Tag"/>
+        </xs:sequence>
+        <xs:choice minOccurs="0">       
+          <xs:sequence>
+            <xs:element ref="DToB3Tag"/>
+            <xs:element ref="BToD3Tag"/>
+          </xs:sequence>
+        </xs:choice>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="AToB1Tag"/>
+          <xs:element ref="BToA1Tag"/>
+          <xs:element ref="PrivateTag"/>
+          <xs:element ref="copyrightTag"/>
+          <xs:element ref="customToStandardPccTag"/>
+          <xs:element ref="mediaWhitePointTag"/>
+          <xs:element ref="spectralViewingConditionsTag"/>
+          <xs:element ref="standardToCustomPccTag"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="gamutBoundaryDescription1Tag"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+ 
+  <xs:element name="profileDescriptionTag" type="multiLocalizedUnicodeType"/>
+  <xs:element name="AToB3Tag" type="multiProcessElementType"/>
+  <xs:element name="BToA3Tag" type="multiProcessElementType"/>
+  
+  <xs:element name="DToB3Tag" type="multiProcessElementType"/>
+  <xs:element name="BToD3Tag" type="multiProcessElementType"/>
+  <xs:element name="AToB1Tag" type="multiProcessElementType"/>
+  <xs:element name="BToA1Tag" type="multiProcessElementType"/>
+  
+  <xs:element name="PrivateTag">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="float16ArrayType">
+          <xs:attribute name="TagSignature" use="required" type="signatureType"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="copyrightTag" type="multiLocalizedUnicodeType"/>
+  <xs:element name="customToStandardPccTag" type="multiProcessElementType"/>
+  <xs:element name="mediaWhitePointTag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="XYZArrayType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XYZArrayType" type="XYZNumber"/>
+  <xs:element name="spectralViewingConditionsTag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="spectralViewingConditionsType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="spectralViewingConditionsType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="StdObserver"/>
+        <xs:element ref="IlluminantXYZ"/>
+        <xs:element ref="ObserverFuncs"/>
+        <xs:element ref="StdIlluminant"/>
+        <xs:element ref="ColorTemperature"/>
+        <xs:element ref="IlluminantSPD"/>
+        <xs:element ref="SurroundXYZ"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StdObserver" type="xs:string"/>
+  <xs:element name="IlluminantXYZ" type="XYZNumber"/>
+  <xs:element name="ObserverFuncs">
+    <xs:complexType mixed="true">
+      <xs:attribute name="end" use="required" type="xs:decimal"/>
+      <xs:attribute name="start" use="required" type="xs:decimal"/>
+      <xs:attribute name="steps" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StdIlluminant" type="xs:string"/>
+  <xs:element name="ColorTemperature" type="xs:decimal"/>
+  <xs:element name="IlluminantSPD">
+    <xs:complexType mixed="true">
+      <xs:attribute name="end" use="required" type="xs:decimal"/>
+      <xs:attribute name="start" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="steps" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SurroundXYZ" type="XYZNumber"/>
+   
+  <xs:element name="standardToCustomPccTag" type="multiProcessElementType"/>
+  <xs:element name="gamutBoundaryDescription1Tag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="gamutBoundaryDescType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gamutBoundaryDescType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Vertices"/>
+        <xs:element ref="Triangles"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Vertices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PCSValues"/>
+        <xs:element ref="DeviceValues"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PCSValues">
+    <xs:complexType mixed="true">
+      <xs:attribute name="channels" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeviceValues">
+    <xs:complexType mixed="true">
+      <xs:attribute name="channels" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Triangles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="T"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="T" type="xs:string"/>
+  <xs:element name="Wavelengths">
+    <xs:complexType>
+      <xs:attribute name="end" use="required" type="xs:decimal"/>
+      <xs:attribute name="start" use="required" type="xs:decimal"/>
+      <xs:attribute name="steps" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!--Basic Data types-->
+  <xs:complexType name="XYZNumber">
+    <xs:sequence>
+      <xs:element ref="XYZNumber"/>
+    </xs:sequence>
+  </xs:complexType>
+ 
+  <xs:element name="XYZNumber">
+    <xs:complexType>  
+        <xs:attribute name="X" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:float">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="Y" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:float">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="Z" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:float">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute> 
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:simpleType name="azimuthNumber">
+      <xs:restriction base="xs:decimal">
+        <xs:minInclusive value="0"/>
+        <xs:maxInclusive value="1"/>
+      </xs:restriction>
+  </xs:simpleType> 
+  
+  <xs:element name="horizantalNumber">
+    <xs:simpleType>
+      <xs:restriction base="xs:decimal">
+        <xs:minInclusive value="-1"/>
+        <xs:maxInclusive value="1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>   
+  
+  <xs:element name="verticalNumber">
+    <xs:simpleType>
+      <xs:restriction base="xs:decimal">
+        <xs:minInclusive value="-1"/>
+        <xs:maxInclusive value="1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>  
+  
+  <xs:simpleType name="zenithNumber">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="uInt8Number">
+    <xs:restriction base="xs:unsignedByte"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="uInt16Number">
+    <xs:restriction base="xs:unsignedShort"/>
+  </xs:simpleType>
+ 
+  <xs:simpleType name="uInt32Number">
+    <xs:restriction base="xs:unsignedInt"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="uInt64Number">
+    <xs:restriction base="xs:unsignedLong"/>
+  </xs:simpleType>
+ 
+  <xs:simpleType name="u8Fixed8Number">
+    <xs:restriction base="xs:unsignedShort"/>
+  </xs:simpleType>
+ 
+  <xs:simpleType name="u1Fixed15Number">
+    <xs:restriction base="xs:unsignedShort"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="u16Fixed16Number">
+    <xs:restriction base="xs:unsignedLong"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="s15Fixed16Number">
+    <xs:restriction base="xs:unsignedLong"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="float16Number">
+    <xs:restriction base="xs:float"/>
+  </xs:simpleType>  
+  
+  <xs:simpleType name="float32Number">
+    <xs:restriction base="xs:float"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="float64Number">
+    <xs:restriction base="xs:double"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="Hex2Byte">	
+      <xs:restriction base="xs:hexBinary">
+        <xs:length value="2"/>
+      </xs:restriction> 
+  </xs:simpleType>
+  
+  <xs:simpleType name="Hex4Byte">	
+      <xs:restriction base="xs:hexBinary">
+        <xs:length value="4"/>
+      </xs:restriction>
+  </xs:simpleType> 
+  
+  <xs:simpleType name="Hex8Byte">	
+      <xs:restriction base="xs:hexBinary">
+        <xs:length value="8"/>
+      </xs:restriction>  
+  </xs:simpleType> 
+  
+  <xs:simpleType name="Hex16Byte">	  
+      <xs:restriction base="xs:hexBinary">
+        <xs:length value="16"/>
+      </xs:restriction> 
+  </xs:simpleType>
+    
+  <xs:complexType name="multiProcessElementType">
+    <xs:sequence>
+      <xs:element ref="multiProcessElementType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="multiProcessElementType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="MultiProcessElements"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MultiProcessElements">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="CurveSetElement"/>
+        <xs:element ref="MatrixElement"/>
+      </xs:choice>
+      <xs:attribute name="InputChannels" use="required" type="xs:integer"/>
+      <xs:attribute name="OutputChannels" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+ 
+  <xs:element name="CurveSetElement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="SegmentedCurve"/>
+      </xs:sequence>
+      <xs:attribute name="InputChannels" use="required" type="xs:integer"/>
+      <xs:attribute name="OutputChannels" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SegmentedCurve">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="FormulaSegment"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FormulaSegment">
+    <xs:complexType mixed="true">
+      <xs:attribute name="End" use="required"/>
+      <xs:attribute name="FunctionType" use="required" type="xs:integer"/>
+      <xs:attribute name="Start" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MatrixElement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="MatrixData"/>
+      </xs:sequence>
+      <xs:attribute name="InputChannels" use="required" type="xs:integer"/>
+      <xs:attribute name="OutputChannels" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MatrixData" type="xs:string"/>
+  <xs:complexType name="MemberTags">
+    <xs:sequence>
+      <xs:element ref="MemberTags"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MemberTags">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="tnt0PcsDataMbr"/>
+        <xs:element minOccurs="0" ref="nmclNameNmClrMbr"/>
+        <xs:element minOccurs="0" ref="nmclTintMbr"/>
+        <xs:element minOccurs="0" ref="nmclPcsDataMbr"/>
+        <xs:choice>
+          <xs:element ref="nmclSpectralDataMbr"/>
+          <xs:element ref="tnt0SpectralDataMbr"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tnt0PcsDataMbr" type="float16ArrayType"/>
+  <xs:element name="nmclNameNmClrMbr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="utf8Type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="utf8Type">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType" fixed="utf8"/>
+        <xs:element name="TextData" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nmclTintMbr" type="float16ArrayType"/>
+  <xs:element name="nmclPcsDataMbr" type="float16ArrayType"/>
+  <xs:element name="nmclSpectralDataMbr" type="float16ArrayType"/>
+  <xs:element name="tnt0SpectralDataMbr" type="float16ArrayType"/>
+  
+  <!--Tag type definitions-->
+  <xs:complexType name="XYZType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType"/>
+      <xs:element name="XYZNumber" type="XYZNumber"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="signatureType">
+    <xs:restriction base="xs:string">
+      <xs:length value="4"/>	  
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="multiLocalizedUnicodeType" mixed="true">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="mluc"/>
+      <xs:element name="LocalizedText" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="LanguageCountry" type="xs:string" default="enUS"/> 
+          <xs:attribute name="CDATA" type="xs:string"/>		
+        </xs:complexType>	
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="float16ArrayType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="fl16"/>
+      <xs:element name="Data" type="float16Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+  </xs:complexType>	
+  
+  <xs:complexType name="float32ArrayType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="fl32"/>
+      <xs:element name="Data" type="float32Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>     
+  </xs:complexType>	 
+  
+  <xs:complexType name="float64ArrayType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="fl64"/>
+      <xs:element name="Data" type="float64Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>   
+  </xs:complexType>	
+  
+  <xs:complexType name="u16Fixed16ArrayType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="uf32"/>
+      <xs:element name="Data" type="u16Fixed16Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+  </xs:complexType>	
+  
+  <xs:complexType name="uInt16ArrayType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="ui16"/>
+      <xs:element name="Data" type="uInt16Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+  </xs:complexType>	
+  
+  <xs:complexType name="uInt32ArrayType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="ui32"/>
+      <xs:element name="Data" type="uInt32Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+  </xs:complexType>	
+  
+  <xs:complexType name="uInt64ArrayType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="ui64"/>
+      <xs:element name="Data" type="uInt64Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+  </xs:complexType>	
+
+  <xs:complexType name="uInt8ArrayType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="ui08"/>
+      <xs:element name="Data" type="uInt8Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+  </xs:complexType>	
+  
+  <xs:complexType name="s15Fixed16ArrayType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="sf32"/>
+      <xs:element name="Data" type="s15Fixed16Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+  </xs:complexType>	
+  
+ <xs:complexType name="colorantOrderType">
+   <xs:sequence>
+     <xs:element name="TagSignature" type="signatureType" fixed="clro"/>
+     <xs:element name="n" type="uInt32Number"/>
+     <xs:element name="colorantOrder" type="uInt8Number"/>
+     <xs:element name="Data" type="uInt8Number" minOccurs="0" maxOccurs="unbounded"/>
+   </xs:sequence> 
+ </xs:complexType>
+ 
+  <xs:complexType name="chromaticityType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="chrm"/>
+      <xs:element name="Colorant" type="uInt16Number"/>
+      <xs:element name="Channel" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="x" type="u16Fixed16Number" use="required"/>
+          <xs:attribute name="y" type="u16Fixed16Number" use="required"/>
+        </xs:complexType>       
+      </xs:element>
+    </xs:sequence> 
+  </xs:complexType>
+ 
+  <xs:complexType name="curveType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="curv"/>
+      <xs:element name="n" type="uInt32Number"/>
+      <xs:element name="Data" minOccurs="0" maxOccurs="unbounded">
+        <xs:simpleType>
+        <xs:restriction base="uInt16Number">
+          <xs:pattern value="([0-65535])+"/>
+        </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence> 
+  </xs:complexType>
+  
+  <xs:complexType name="parametricCurveType">
+    <xs:sequence> 
+    <xs:element name="TagSignature" type="signatureType" fixed="para"/>
+    <xs:element name="FunctionType" minOccurs="1">
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:pattern value="[0-4]"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:element>
+      <xs:element name="Data" minOccurs="0" maxOccurs="unbounded">
+        <xs:simpleType>
+          <xs:restriction base="s15Fixed16Number">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="7"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence> 
+  </xs:complexType>
+  
+  <xs:complexType name="dataType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="data"/>
+      <xs:element name="DataFlag" type="Hex8Byte"/>
+      <xs:element name="Data" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+  </xs:complexType>
+  
+  <xs:complexType name="zipXmlType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="zxml"/>
+      <xs:element name="Data" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>   
+  </xs:complexType>	 
+  
+  <xs:complexType name="measurementType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="meas"/>
+      <xs:element name="StandardObserver" type="Hex8Byte" />
+      <xs:element name="MeasurmentBacking" type="XYZNumber" />
+      <xs:element name="Geometry" type="Hex8Byte" />
+      <xs:element name="Flare" type="Hex8Byte" />
+      <xs:element name="Standardilluminant" type="Hex8Byte" />
+    </xs:sequence>   
+  </xs:complexType>
+  
+  <xs:complexType name="LABNamedColorData">
+    <xs:sequence>
+    <xs:element name="Data" minOccurs="0" maxOccurs="unbounded"> 
+      <xs:simpleType>
+        <xs:restriction base="uInt16Number">
+          <xs:pattern value="([0-65535])+"/>
+        </xs:restriction>
+      </xs:simpleType> 
+    </xs:element> 
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" use="required"/> 
+    <xs:attribute name="L" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:float">
+          <xs:minInclusive value="0"/>
+          <xs:maxInclusive value="100"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="a" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:float">
+          <xs:minInclusive value="-128"/>
+          <xs:maxInclusive value="127"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="b" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:float">
+          <xs:minInclusive value="-128"/>
+          <xs:maxInclusive value="127"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute> 
+  </xs:complexType>
+  
+  <xs:complexType name="XZYNamedColorData">
+    <xs:sequence>
+      <xs:element name="Data" minOccurs="0" maxOccurs="unbounded"> 
+        <xs:simpleType>
+          <xs:restriction base="uInt16Number">
+            <xs:pattern value="([0-65535])+"/>
+          </xs:restriction>
+        </xs:simpleType> 
+      </xs:element> 
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" use="required"/>  
+    <xs:attribute name="X" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:float">
+          <xs:minInclusive value="0"/>
+          <xs:maxInclusive value="2"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Y" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:float">
+          <xs:minInclusive value="0"/>
+          <xs:maxInclusive value="2"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Z" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:float">
+          <xs:minInclusive value="0"/>
+          <xs:maxInclusive value="2"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>          
+  </xs:complexType>
+  
+  <xs:complexType name="namedColor2Type">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="ncl2"/>
+      <xs:element name="NamedColors">
+        <xs:complexType>
+          <xs:attribute name="VendorFlag" type="xs:string"/>
+          <xs:attribute name="CountOfDeviceCoords" type="uInt32Number"/>
+          <xs:attribute name="DeviceEncoding" type="uInt32Number"/>
+          <xs:attribute name="Prefix" type="xs:string"/>
+          <xs:attribute name="Suffix" type="xs:string"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:choice>
+      <xs:element name="LABNamedColor" type="LABNamedColorData"/>
+      <xs:element name="XYZNamedColor" type="XZYNamedColorData"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+<xs:complexType name="ProfileDescription">
+  <xs:sequence>
+    <xs:element name="DeviceManufactureSignature" type="xs:string"/>
+    <xs:element name="DeviceModelSignature" type="xs:string"/>
+    <xs:element name="DeviceAttributes" type="xs:string"/>
+    <xs:element name="Technology" type="xs:string"/>
+    <xs:element name="DeviceManufacturer" type="multiLocalizedUnicodeType"/>
+    <xs:element name="DeviceModel" type="multiLocalizedUnicodeType"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ProfileSeqDescType">
+  <xs:sequence>
+    <xs:element name="TagSignature" type="signatureType" fixed="pseq"/>
+    <xs:element name="ProfileSequence" type="ProfileDescription" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+  <xs:complexType name="viewConditionsType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="view"/>
+      <xs:element name="IlluminantXYZ" type="XYZNumber"/>
+      <xs:element name="SurroundXYZ" type="XYZNumber"/>
+      <xs:element name="IllumType" type="measurementType"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
+  <!-- Lut elements -->
+  
+  <xs:complexType name="ACurves">
+      <xs:choice>
+        <xs:element name="Curve" type="curveType" minOccurs="3" maxOccurs="15"/>
+        <xs:element name="parametricCurve" type="parametricCurveType" minOccurs="3" maxOccurs="15"/>
+      </xs:choice>
+  </xs:complexType>
+ 
+  <xs:complexType name="CLUT">
+    <xs:sequence>
+      <xs:element name="GridPoints" type="uInt8Number"/>    
+      <xs:element name="TableData">			   
+        <xs:simpleType>
+          <xs:union memberTypes="Table8 Table16"/>
+        </xs:simpleType>			  
+      </xs:element>   
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="MCurves">
+      <xs:choice>
+        <xs:element name="Curve" type="curveType" minOccurs="3" maxOccurs="3"/>
+        <xs:element name="parametricCurve" type ="parametricCurveType" minOccurs="3" maxOccurs="3"/>
+      </xs:choice>
+  </xs:complexType>		  
+  
+  <xs:complexType name="Matrix">
+    <xs:attribute name="e1" type="s15Fixed16Number" use="required"/>
+    <xs:attribute name="e2" type="s15Fixed16Number" use="required"/>
+    <xs:attribute name="e3" type="s15Fixed16Number" use="required"/>
+    <xs:attribute name="e4" type="s15Fixed16Number" use="required"/>
+    <xs:attribute name="e5" type="s15Fixed16Number" use="required"/>
+    <xs:attribute name="e6" type="s15Fixed16Number" use="required"/>
+    <xs:attribute name="e7" type="s15Fixed16Number" use="required"/>
+    <xs:attribute name="e8" type="s15Fixed16Number" use="required"/>
+    <xs:attribute name="e9" type="s15Fixed16Number" use="required"/>
+    <xs:attribute name="e10" type="s15Fixed16Number" use="optional"/>
+    <xs:attribute name="e11" type="s15Fixed16Number" use="optional"/>
+    <xs:attribute name="e12" type="s15Fixed16Number" use="optional"/>		
+  </xs:complexType>	
+  
+  <xs:complexType name="BCurves">
+      <xs:choice>
+        <xs:element name="Curve" type="curveType" minOccurs="3" maxOccurs="3"/>
+        <xs:element name="parametricCurve" type ="parametricCurveType" minOccurs="3" maxOccurs="3"/>
+      </xs:choice>  
+  </xs:complexType>	
+
+  <xs:simpleType name="Table8">
+    <xs:restriction base="uInt8Number">
+      <xs:pattern value="([0-255])+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="Table16">
+    <xs:restriction base="uInt16Number">
+      <xs:pattern value="([0-65535])+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  
+  <!-- Lut types -->
+  <xs:complexType name="lut8Type">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="mft1"/>    
+      <xs:element name="Matrix" type="Matrix"/>
+      <xs:element name="InputTable" type="Table8"/>
+      <xs:element name="CLUT" type="CLUT"/>
+      <xs:element name="OutputTable" type="Table8"/>     
+    </xs:sequence>
+    <xs:attribute name="InputChannels" type="uInt8Number"/>
+    <xs:attribute name="OutputChannels" type="uInt8Number"/>
+  </xs:complexType>	   
+  
+  <xs:complexType name="lut16Type">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="mft2"/>    
+      <xs:element name="Matrix" type="Matrix"/>
+      <xs:element name="InputTable" type="Table16"/>
+      <xs:element name="CLUT" type="CLUT"/>
+      <xs:element name="OutputTable" type="Table16"/>     
+    </xs:sequence>
+    <xs:attribute name="InputChannels" type="uInt8Number"/>
+    <xs:attribute name="OutputChannels" type="uInt8Number"/>
+  </xs:complexType>	
+  
+  <xs:complexType name="lutAToBType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="mAB "/>    
+      <xs:element name="BCurves" type="BCurves"/>
+      <xs:element name="Matrix" type="Matrix"/>
+      <xs:element name="MCurves" type="MCurves"/>
+      <xs:element name="CLUT" type="CLUT"/>
+      <xs:element name="ACurves" type="ACurves"/>     
+    </xs:sequence>
+    <xs:attribute name="InputChannels" type="uInt8Number"/>
+    <xs:attribute name="OutputChannels" type="uInt8Number"/>
+  </xs:complexType>	   
+  
+  <xs:complexType name="lutBToAType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="mBA "/>
+      <xs:element name="ACurves" type="ACurves"/>
+      <xs:element name="CLUT" type="CLUT"/>
+      <xs:element name="MCurves" type="MCurves"/>
+      <xs:element name="Matrix" type="Matrix"/>
+      <xs:element name="BCurves" type="BCurves"/>  
+    </xs:sequence>
+    <xs:attribute name="InputChannels" type="uInt8Number"/>
+    <xs:attribute name="OutputChannels" type="uInt8Number"/>
+  </xs:complexType>	
+  
+</xs:schema>
