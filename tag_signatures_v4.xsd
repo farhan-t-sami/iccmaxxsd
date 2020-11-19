@@ -1,0 +1,184 @@
+<!-- 41324230 'A2B0'  -->
+<xs:element name="AToB0Tag" type="multiProcessElementType"/>
+
+<!-- 41324231 'A2B1'  -->
+<xs:element name="AToB1Tag" type="multiProcessElementType"/>
+
+<!-- 41324232 'A2B2'  -->
+<xs:element name="AToB2Tag" type="multiProcessElementType"/>
+
+<!-- 42324130 'B2A0'  -->
+<xs:element name="BToA0Tag" type="multiProcessElementType"/>
+
+<!-- 42324131 'B2A1'  -->
+<xs:element name="BToA1Tag" type="multiProcessElementType"/>
+
+<!-- 42324132 'B2A2'  -->
+<xs:element name="BToA2Tag" type="multiProcessElementType"/>
+
+<!-- 42324430 ‘B2D0’  -->
+<xs:element name="BToD0Tag" type="multiProcessElementType"/>
+
+<!-- 42324431 ‘B2D1’  -->
+<xs:element name="BToD1Tag" type="multiProcessElementType"/>
+
+<!-- 42324432 ‘B2D2’  -->
+<xs:element name="BToD2Tag" type="multiProcessElementType"/>
+
+<!-- 42324433 ‘B2D3’ -->
+<xs:element name="BToD3Tag" type="multiProcessElementType"/>
+
+<!-- 44324230 ‘D2B0’  -->
+<xs:element name="DToB0Tag" type="multiProcessElementType"/>
+
+<!-- 44324231 ‘D2B1’  -->
+<xs:element name="DToB1Tag" type="multiProcessElementType"/>
+
+<!-- 44324232 ‘D2B2’  -->
+<xs:element name="DToB2Tag" type="multiProcessElementType"/>
+
+<!-- 44324233 ‘D2B3’  -->
+<xs:element name="DToB3Tag" type="multiProcessElementType"/>
+
+<!-- 49434335 ‘ICC5’  -->
+<!-- NA -->
+
+<!-- 62545243 'bTRC' blueTRCTag -->
+<xs:element name="blueTRCTag" type="curveType"/>
+
+<!-- 6258595a 'bXYZ' blueMatrixColumnTag -->
+<xs:element name="blueMatrixColumnTag" type="XYZType"/>
+
+<!-- 62666420 'bfd'  -->
+<!-- NA -->
+
+<!-- 626b7074 'bkpt'  -->
+<!-- NA -->
+
+<!-- 63616c74 'calt' calibrationDateTimeTag -->
+<xs:element name="calibrationDateTimeTag" type="dateTimeType"/>
+
+<!-- 63686164 'chad' chromaticAdaptationTag -->
+<xs:element name="chromaticAdaptationTag" type="s15Fixed16ArrayType"/>
+
+<!-- 6368726d 'chrm' chromaticityTag -->
+<xs:element name="chromaticityTag" type=""/>
+
+<!-- 63696973 'ciis' colorimetricIntentImageStateTag -->
+<xs:element name="colorimetricIntentImageStateTag" type="chromaticityType"/>
+
+<!-- 636C6F74 'clot' colorantTableOutTag -->
+<xs:element name="colorantTableOutTag" type="colorantTableType"/>
+
+<!-- 636c726f 'clro' colorantOrderTag -->
+<xs:element name="colorantOrderTag" type="colorantOrderType"/>
+
+<!-- 636c7274 'clrt' colorantTableTag -->
+<xs:element name="colorantTableTag" type="colorantTableType"/>
+
+<!-- 63707274 'cprt'  -->
+<xs:element name="copyrightTag" type="multiLocalizedUnicodeType"/>
+
+<!-- 63726469 'crdi'  -->
+<!-- NA -->
+
+<!-- 64657363 'desc'  -->
+<xs:element name="profileDescriptionTag" type="multiLocalizedUnicodeType"/>
+
+<!-- 64657673 'devs'  -->
+<!-- NA -->
+
+<!-- 646d6464 'dmdd'  -->
+<xs:element name="deviceModelDescTag" type="multiLocalizedUnicodeType"/>
+
+<!-- 646d6e64 'dmnd'  -->
+<xs:element name="deviceMfgDescTag" type="multiLocalizedUnicodeType"/>
+
+<!-- 67545243 'gTRC' greenTRCTag -->
+<xs:element name="greenTRCTag" type="curveType"/>
+
+<!-- 6758595a 'gXYZ' greenMatrixColumnTag -->
+<xs:element name="greenMatrixColumnTag" type="XYZType"/>
+
+<!-- 67616d74 'gamt' gamutTag -->
+<xs:element name="gamutTag" type="lut8Type"/>
+
+<!-- 6b545243 'kTRC' grayTRCTag -->
+<xs:element name="grayTRCTag" type="curveType"/>
+
+<!-- 6c756d69 'lumi' luminanceTag -->
+<xs:element name="luminanceTag" type="XYZType"/>
+
+<!-- 6d656173 'meas' measurementTag -->
+<xs:element name="measurementTag" type="measurementType"/>
+
+<!-- 6e636c32 'ncl2' namedColor2Tag -->
+<xs:element name="namedColor2Tag" type="namedColor2Type"/>
+
+<!-- 6e636f6c 'ncol'  -->
+<!-- NA -->
+
+<!-- 70726530 'pre0' preview0Tag -->
+<xs:element name="preview0Tag" type="lut8Type"/>
+
+<!-- 70726531 'pre1' preview1Tag -->
+<xs:element name="preview1Tag" type="lut8Type"/>
+
+<!-- 70726532 'pre2' preview2Tag -->
+<xs:element name="preview2Tag" type="lut8Type"/>
+
+<!-- 70733269 'ps2i'  -->
+<!-- 70733273 'ps2s'  -->
+<!-- 70736430 'psd0'  -->
+<!-- 70736431 'psd1'  -->
+<!-- 70736432 'psd2'  -->
+<!-- 70736433 'psd3'  -->
+<!-- NA -->
+
+<!-- 70736571 'pseq' profileSequenceDescTag -->
+<xs:element name="profileSequenceDescTag" type="profileSequenceDescType"/>
+
+<!-- 70736964 'psid' profileSequenceIdentifierTag -->
+<xs:element name="profileSequenceIdentifierTag" type="profileSequenceIdentifierType"/>
+
+<!-- 72545243 'rTRC' redTRCTag -->
+<xs:element name="redTRCTag" type="curveType"/>
+
+<!-- 7258595a 'rXYZ' redMatrixColumnTag -->
+<xs:element name="redMatrixColumnTag" type="XYZType"/>
+
+<!-- 72657370 'resp' outputResponseTag -->
+<xs:element name="outputResponseTag" type="responseCurveSet16Type"/>
+
+<!-- 72696730 'rig0' perceptualRenderingIntentGamutTag -->
+<xs:element name="perceptualRenderingIntentGamutTag" type="signatureType"/>
+
+<!-- 72696732 'rig2' saturationRenderingIntentGamutTag -->
+<xs:element name="saturationRenderingIntentGamutTag" type="signatureType"/>
+
+<!-- 73637264 'scrd'  -->
+<!-- NA -->
+
+<!-- 7363726e 'scrn'  -->
+<!-- NA -->
+
+<!-- 74617267 'targ' charTargetTag -->
+<xs:element name="charTargetTag" type="textType"/>
+
+<!-- 74656368 'tech' technologyTag -->
+<xs:element name="technologyTag" type="signatureType"/>
+
+<!-- 76696577 'view' viewingConditionsTag -->
+<xs:element name="viewingConditionsTag" type="viewingConditionsType"/>
+
+<!-- 76756564 'vued' viewingCondDescTag -->
+<xs:element name="viewingCondDescTag" type="multiLocalizedUnicodeType"/>
+
+<!-- 77747074 'wtpt' mediaWhitePointTag -->
+<xs:element name="mediaWhitePointTag">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="XYZArrayType"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>

@@ -1,0 +1,142 @@
+<!-- Basic number types -->
+
+<!-- 1.	dateTimeNumber -->
+
+<!-- 2.	float32Number -->
+<xs:simpleType name="float32Number">
+    <xs:restriction base="xs:float"/>
+</xs:simpleType>
+
+<!-- 3.	positionNumber -->
+
+<!-- 4.	response16Number -->
+
+<!-- 5.	s15Fixed16Number -->
+<xs:simpleType name="s15Fixed16Number">
+    <xs:restriction base="xs:unsignedLong"/>
+</xs:simpleType>
+
+<!-- 6.	u16Fixed16Number -->
+<xs:simpleType name="u16Fixed16Number">
+    <xs:restriction base="xs:unsignedLong"/>
+</xs:simpleType>
+
+<!-- 7.	u1Fixed15Number -->
+<xs:simpleType name="u1Fixed15Number">
+    <xs:restriction base="xs:unsignedShort"/>
+</xs:simpleType>
+
+<!-- 8.	u8Fixed8Number -->
+<xs:simpleType name="u8Fixed8Number">
+    <xs:restriction base="xs:unsignedShort"/>
+</xs:simpleType>
+
+<!-- 9.	uInt16Number -->
+<xs:simpleType name="uInt16Number">
+    <xs:restriction base="xs:unsignedShort"/>
+</xs:simpleType>
+
+<!-- 10.	uInt32Number -->
+<xs:simpleType name="uInt32Number">
+    <xs:restriction base="xs:unsignedInt"/>
+</xs:simpleType>
+
+<!-- 11.	uInt64Number -->
+<xs:simpleType name="uInt64Number">
+    <xs:restriction base="xs:unsignedLong"/>
+</xs:simpleType>
+
+<!-- 12.	uInt8Number -->
+<xs:simpleType name="uInt8Number">
+    <xs:restriction base="xs:unsignedByte"/>
+</xs:simpleType>
+
+<!-- 13.	XYZNumber -->
+<xs:complexType name="XYZNumber">
+    <xs:sequence>
+        <xs:element ref="XYZNumber"/>
+    </xs:sequence>
+</xs:complexType>
+ 
+<xs:element name="XYZNumber">
+    <xs:complexType>  
+        <xs:attribute name="X" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:float">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="Y" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:float">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="Z" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:float">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="2"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute> 
+    </xs:complexType>
+</xs:element>
+
+<!-- 14.	Seven-bit ASCII Extended basic types  -->
+
+<!-- 15.	azimuthNumber  -->
+<xs:simpleType name="azimuthNumber">
+    <xs:restriction base="xs:decimal">
+        <xs:minInclusive value="0"/>
+        <xs:maxInclusive value="1"/>
+    </xs:restriction>
+</xs:simpleType> 
+
+<!-- 16.	float16Number  -->
+<xs:simpleType name="float16Number">
+    <xs:restriction base="xs:float"/>
+</xs:simpleType>  
+
+<!-- 17.	float64Number  -->
+<xs:simpleType name="float64Number">
+    <xs:restriction base="xs:double"/>
+</xs:simpleType>
+
+<!-- 18.	horizontalNumber  -->
+<xs:element name="horizantalNumber">
+    <xs:simpleType>
+    <xs:restriction base="xs:decimal">
+        <xs:minInclusive value="-1"/>
+        <xs:maxInclusive value="1"/>
+    </xs:restriction>
+    </xs:simpleType>
+</xs:element>   
+
+<!-- 19.	Sparse matrix encodings  -->
+<!-- 20.	sparseMatrixEncodingType  -->
+<!-- 21.	spectralRange  -->
+<!-- 22.	tintArray -->
+<!-- 23.	valueEncodingType  -->
+
+<!-- 24.	verticalNumber  -->
+<xs:element name="verticalNumber">
+    <xs:simpleType>
+    <xs:restriction base="xs:decimal">
+        <xs:minInclusive value="-1"/>
+        <xs:maxInclusive value="1"/>
+    </xs:restriction>
+    </xs:simpleType>
+</xs:element>  
+
+<!-- 25.	zenithNumber -->
+<xs:simpleType name="zenithNumber">
+    <xs:restriction base="xs:decimal">
+    <xs:minInclusive value="0"/>
+    <xs:maxInclusive value="1"/>
+    </xs:restriction>
+</xs:simpleType>
