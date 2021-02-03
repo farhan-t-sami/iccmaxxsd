@@ -1,6 +1,7 @@
 <!-- Basic number types -->
 
 <!-- 1.	dateTimeNumber -->
+<xs:element name="dateTimeNumber" type="xs:dateTime"/>
 
 <!-- 2.	float32Number -->
 <xs:simpleType name="float32Number">

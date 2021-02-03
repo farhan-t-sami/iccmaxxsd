@@ -56,13 +56,13 @@
 <!-- 64657363 'desc' multiLocalizedUnicodeType -->
 <xs:complexType name="multiLocalizedUnicodeType" mixed="true">
     <xs:sequence>
-    <xs:element name="TagSignature" type="signatureType" fixed="mluc"/>
-    <xs:element name="LocalizedText" maxOccurs="unbounded">
-        <xs:complexType>
-        <xs:attribute name="LanguageCountry" type="xs:string" default="enUS"/> 
-        <xs:attribute name="CDATA" type="xs:string"/>		
-        </xs:complexType>	
-    </xs:element>
+        <xs:element name="TagSignature" type="signatureType" fixed="mluc"/>
+        <xs:element name="LocalizedText" maxOccurs="unbounded">
+            <xs:complexType>
+                <xs:attribute name="LanguageCountry" type="xs:string" default="enUS" use="required" /> 
+                <xs:attribute name="CDATA" type="xs:string"/>		
+            </xs:complexType>	
+        </xs:element>
     </xs:sequence>
 </xs:complexType>
 
@@ -214,10 +214,11 @@
 </xs:complexType>	
 
 <!-- 73696720 'sig ' signatureType -->
-<xs:simpleType name="signatureType">
-    <xs:restriction base="xs:string">
-    <xs:length value="4"/>	  
-    </xs:restriction>
+<xs:complexType name="signatureType">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="xs:string" />
+        <xs:element name="Signature" type="xs:string" />
+    </xs:sequence>
 </xs:simpleType>
 
 <!-- 74657874 'text' textType -->
@@ -264,16 +265,47 @@
 </xs:complexType>	
 
 <!-- 76696577 'view' viewingConditionsType -->
-<xs:element name="spectralViewingConditionsType">
-    <xs:complexType>
+<xs:complexType name="spectralViewingConditionsType">
     <xs:sequence>
-        <xs:element ref="StdObserver"/>
-        <xs:element ref="IlluminantXYZ"/>
-        <xs:element ref="ObserverFuncs"/>
-        <xs:element ref="StdIlluminant"/>
-        <xs:element ref="ColorTemperature"/>
-        <xs:element ref="IlluminantSPD"/>
-        <xs:element ref="SurroundXYZ"/>
+        <xs:element name="TagSignature" type="xs:string" />
+        <xs:element name="StdObserver" type="xs:string" />
+        <xs:element name="IlluminantXYZ">
+            <xs:complexType>
+                <xs:attribute name="X" type="xs:decimal" use="required" />
+                <xs:attribute name="Y" type="xs:decimal" use="required" />
+                <xs:attribute name="Z" type="xs:decimal" use="required" />
+            </xs:complexType>
+        </xs:element>
+        <xs:element name="ObserverFuncs">
+            <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="start" type="xs:unsignedShort" use="required" />
+                    <xs:attribute name="end" type="xs:unsignedShort" use="required" />
+                    <xs:attribute name="steps" type="xs:unsignedByte" use="required" />
+                </xs:extension>
+            </xs:simpleContent>
+            </xs:complexType>
+        </xs:element>
+        <xs:element name="StdIlluminant" type="xs:string" />
+        <xs:element name="ColorTemperature" type="xs:unsignedShort" />
+        <xs:element name="IlluminantSPD">
+            <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="start" type="xs:unsignedShort" use="required" />
+                    <xs:attribute name="end" type="xs:unsignedShort" use="required" />
+                    <xs:attribute name="steps" type="xs:unsignedByte" use="required" />
+                </xs:extension>
+            </xs:simpleContent>
+            </xs:complexType>
+        </xs:element>
+        <xs:element name="SurroundXYZ">
+            <xs:complexType>
+                <xs:attribute name="X" type="xs:decimal" use="required" />
+                <xs:attribute name="Y" type="xs:decimal" use="required" />
+                <xs:attribute name="Z" type="xs:decimal" use="required" />
+            </xs:complexType>
+        </xs:element>
     </xs:sequence>
-    </xs:complexType>
 </xs:element>
