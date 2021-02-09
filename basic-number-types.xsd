@@ -1,0 +1,128 @@
+<!-- ICC V4 -->
+<!-- 4.2 dateTimeNumber - 6 -->
+<xs:element name="dateTimeNumber" type="xs:dateTime"/>
+
+<!-- 4.3 float32Number - 7 -->
+<xs:simpleType name="float32Number">
+    <xs:restriction base="xs:float"/>
+</xs:simpleType>
+
+<!-- 4.4 positionNumber - 7 -->
+<xs:simpleType name="positionNumber">
+    <xs:restriction base="xs:integer">
+        <xs:pattern value="[0-1]{64}"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<!-- 4.5 response16Number - 7 -->
+<xs:simpleType name="positionNumber">
+    <xs:restriction base="xs:hexBinary">
+        <xs:pattern value="[0-9A-F]{16}[0]{16}[0-9A-F]{32}"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<!-- 4.6 s15Fixed16Number - 7 -->
+<xs:simpleType name="s15Fixed16Number">
+    <xs:restriction base="xs:unsignedLong"/>
+</xs:simpleType>
+
+<!-- 4.7 u16Fixed16Number - 8 -->
+<xs:simpleType name="u16Fixed16Number">
+    <xs:restriction base="xs:unsignedLong"/>
+</xs:simpleType>
+
+<!-- 4.8 u1Fixed15Number - 8 -->
+<xs:simpleType name="u1Fixed15Number">
+    <xs:restriction base="xs:unsignedShort"/>
+</xs:simpleType>
+
+<!-- 4.9 u8Fixed8Number - 8 -->
+<xs:simpleType name="u8Fixed8Number">
+    <xs:restriction base="xs:unsignedShort"/>
+</xs:simpleType>
+
+<!-- 4.10 uInt16Number - 8 -->
+<xs:simpleType name="uInt16Number">
+    <xs:restriction base="xs:unsignedShort"/>
+</xs:simpleType>
+
+<!-- 4.11 uInt32Number - 8 -->
+<xs:simpleType name="uInt32Number">
+    <xs:restriction base="xs:unsignedInt"/>
+</xs:simpleType>
+
+<!-- 4.12 uInt64Number - 8 -->
+<xs:simpleType name="uInt64Number">
+    <xs:restriction base="xs:unsignedLong"/>
+</xs:simpleType>
+
+<!-- 4.13 uInt8Number - 8 -->
+<xs:simpleType name="uInt8Number">
+    <xs:restriction base="xs:unsignedByte"/>
+</xs:simpleType>
+
+<!-- 4.14 XYZNumber - 9 -->
+<xs:simpleType name="XYZNumber">
+    <xs:restriction base="xs:s15Fixed16Number"/>
+</xs:simpleType>
+
+<!-- 4.15 Seven-bit ASCII - 9 -->
+<xs:simpleType name="Seven-bit ASCII">
+    <xs:restriction base="xs:string">
+        <xs:pattern value="[0-9A-Za-z]{16}[0]{16}[0-9A-F]{32}"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<!-- ICC MAX -->
+<!-- 4.2.1 azimuthNumber  -  3 -->
+<xs:simpleType name="azimuthNumber">
+    <xs:restriction base="xs:decimal">
+        <xs:minInclusive value="0"/>
+        <xs:maxInclusive value="1"/>
+    </xs:restriction>
+</xs:simpleType> 
+
+<!-- 4.2.2 float16Number  -  3 -->
+<xs:simpleType name="float16Number">
+    <xs:restriction base="xs:float"/>
+</xs:simpleType>  
+
+<!-- 4.2.3 float64Number  -  4 -->
+<xs:simpleType name="float64Number">
+    <xs:restriction base="xs:double"/>
+</xs:simpleType>
+
+<!-- 4.2.4 horizontalNumber  -  4 -->
+<xs:element name="horizantalNumber">
+    <xs:simpleType>
+    <xs:restriction base="xs:decimal">
+        <xs:minInclusive value="-1"/>
+        <xs:maxInclusive value="1"/>
+    </xs:restriction>
+    </xs:simpleType>
+</xs:element>   
+
+4.2.5 Sparse matrix encodings  -  4
+
+4.2.6 sparseMatrixEncodingType  -  6
+4.2.7 spectralRange  -  7
+4.2.8 tintArray  -  7
+4.2.9 valueEncodingType  -  7
+
+<!-- 4.2.10 verticalNumber  -  8 -->
+<xs:element name="verticalNumber">
+    <xs:simpleType>
+    <xs:restriction base="xs:decimal">
+        <xs:minInclusive value="-1"/>
+        <xs:maxInclusive value="1"/>
+    </xs:restriction>
+    </xs:simpleType>
+</xs:element>  
+
+<!-- 4.2.11 zenithNumber -  8 -->
+<xs:simpleType name="zenithNumber">
+    <xs:restriction base="xs:decimal">
+    <xs:minInclusive value="0"/>
+    <xs:maxInclusive value="1"/>
+    </xs:restriction>
+</xs:simpleType>

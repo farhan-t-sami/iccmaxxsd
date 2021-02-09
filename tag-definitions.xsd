@@ -1,0 +1,427 @@
+<!-- ICC MAX -->
+<!-- 9.2.1 AToB0Tag  36 -->
+<xs:element name="AToB0Tag"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="lutAToBType"/>
+      <xs:enumeration type="multiProcessElementType"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- 9.2.2 AToB1Tag  37 -->
+<xs:element name="AToB1Tag"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="lutAToBType"/>
+      <xs:enumeration type="multiProcessElementType"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- 9.2.3 AToB2Tag  37 -->
+<xs:element name="AToB2Tag"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="lutAToBType"/>
+      <xs:enumeration type="multiProcessElementType"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- 9.2.4 AToB3Tag  37 -->
+<xs:element name="AToB3Tag"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="lutAToBType"/>
+      <xs:enumeration type="multiProcessElementType"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- 9.2.5 AToM0Tag . 37 -->
+<xs:element name="AToM0Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.6 brdfColorimetricParameter0Tag  38 -->
+<xs:element name="brdfColorimetricParameter0Tag" type="tagStructType"/>
+
+<!-- 9.2.7 brdfColorimetricParameter1Tag  38 -->
+<xs:element name="brdfColorimetricParameter1Tag" type="tagStructType"/>
+
+<!-- 9.2.8 brdfColorimetricParameter2Tag  38 -->
+<xs:element name="brdfColorimetricParameter2Tag" type="tagStructType"/>
+
+<!-- 9.2.9 brdfColorimetricParameter3Tag  39 -->
+<xs:element name="brdfColorimetricParameter3Tag" type="tagStructType"/>
+
+<!-- 9.2.10 brdfSpectralParameter0Tag  39 -->
+<xs:element name="brdfSpectralParameter0Tag" type="tagStructType"/>
+
+<!-- 9.2.11 brdfSpectralParameter1Tag  39 -->
+<xs:element name="brdfSpectralParameter1Tag" type="tagStructType"/>
+
+<!-- 9.2.12 brdfSpectralParameter2Tag  40 -->
+<xs:element name="brdfSpectralParameter2Tag" type="tagStructType"/>
+
+<!-- 9.2.13 brdfSpectralParameter3Tag  40 -->
+<xs:element name="brdfSpectralParameter3Tag" type="tagStructType"/>
+
+<!-- 9.2.14 brdfAToB0Tag  40 -->
+<xs:element name="brdfAToB0Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.15 brdfAToB1Tag  41 -->
+<xs:element name="brdfAToB1Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.16 brdfAToB2Tag  41 -->
+<xs:element name="brdfAToB2Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.17 brdfAToB3Tag  41 -->
+<xs:element name="brdfAToB3Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.18 brdfBToA0Tag  42 -->
+<xs:element name="brdfBToA0Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.19 brdfBToA1Tag  42 -->
+<xs:element name="brdfBToA1Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.20 brdfBToA2Tag  43 -->
+<xs:element name="brdfBToA2Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.21 brdfBToA3Tag  43 -->
+<xs:element name="brdfBToA3Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.22 brdfBToD0Tag  43 -->
+<xs:element name="brdfBToD0Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.23 brdfBToD1Tag  44 -->
+<xs:element name="brdfBToD1Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.24 brdfBToD2Tag  44 -->
+<xs:element name="brdfBToD2Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.25 brdfBToD3Tag  45 -->
+<xs:element name="brdfBToD3Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.26 brdfDToB0Tag  45 -->
+<xs:element name="brdfDToB0Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.27 brdfDToB1Tag  45 -->
+<xs:element name="brdfDToB1Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.28 brdfDToB2Tag  46 -->
+<xs:element name="brdfDToB2Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.29 brdfDToB3Tag  46 -->
+<xs:element name="brdfDToB3Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.30 brdfMToB0Tag . 46 -->
+<xs:element name="brdfMToB0Tag" type="tagStructType"/>
+
+<!-- 9.2.31 brdfMToB1Tag . 47 -->
+<xs:element name="brdfMToB1Tag" type="tagStructType"/>
+
+<!-- 9.2.32 brdfMToB2Tag . 47 -->
+<xs:element name="brdfMToB2Tag" type="tagStructType"/>
+
+<!-- 9.2.33 brdfMToB3Tag . 47 -->
+<xs:element name="brdfMToB3Tag" type="tagStructType"/>
+
+<!-- 9.2.34 brdfMToS0Tag  48 -->
+<xs:element name="brdfMToS0Tag" type="tagStructType"/>
+
+<!-- 9.2.35 brdfMToS1Tag  48 -->
+<xs:element name="brdfMToS1Tag" type="tagStructType"/>
+
+<!-- 9.2.36 brdfMToS2Tag  48 -->
+<xs:element name="brdfMToS2Tag" type="tagStructType"/>
+
+<!-- 9.2.37 brdfMToS3Tag  49 -->
+<xs:element name="brdfMToS3Tag" type="tagStructType"/>
+
+<!-- 9.2.38 BToA0Tag . 49 -->
+<xs:element name="BToA0Tag"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="lutAToBType"/>
+      <xs:enumeration type="multiProcessElementType"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- 9.2.39 BToA1Tag . 50 -->
+<xs:element name="BToA1Tag"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="lutAToBType"/>
+      <xs:enumeration type="multiProcessElementType"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- 9.2.40 BToA2Tag . 50 -->
+<xs:element name="BToA2Tag"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="lutAToBType"/>
+      <xs:enumeration type="multiProcessElementType"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- 9.2.41 BToA3Tag . 50 -->
+<xs:element name="BToA3Tag"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="lutAToBType"/>
+      <xs:enumeration type="multiProcessElementType"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- 9.2.42 BToD0Tag . 50 -->
+<xs:element name="BToD0Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.43 BToD1Tag . 51 -->
+<xs:element name="BToD1Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.44 BToD2Tag . 51 -->
+<xs:element name="BToD2Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.45 BToD3Tag . 51 -->
+<xs:element name="BToD3Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.46 calibrationDateTimeTag  52 -->
+<xs:element name="calibrationDateTimeTag" type="dateTimeType"/>
+
+<!-- 9.2.47 charTargetTag  52 -->
+<xs:element name="charTargetTag"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="utf8Type"/>
+      <xs:enumeration type="utf8ZipType"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- 9.2.48 colorEncodingParamsTag . 52 -->
+<xs:element name="colorEncodingParamsTag" type="tagStructType"/>
+
+<!-- 9.2.49 colorSpaceNameTag  52 -->
+<xs:element name="colorSpaceNameTag" type="utf8Type"/>
+
+<!-- 9.2.50 colorantOrderTag . 53 -->
+<xs:element name="colorantOrderTag" type="colorantOrderType"/>
+
+<!-- 9.2.51 colorantOrderOutTag  53 -->
+<xs:element name="colorantOrderOutTag" type="colorantOrderType"/>
+
+<!-- 9.2.52 colorantInfoTag . 53 -->
+<xs:element name="colorantInfoTag" type="tagArrayType"/>
+
+<!-- 9.2.53 colorantInfoOutTag  53 -->
+<xs:element name="colorantInfoOutTag" type="tagArrayType"/>
+
+<!-- 9.2.54 colorimetricIntentImageStateTag . 53 -->
+<xs:element name="colorimetricIntentImageStateTag" type="chromaticityType"/>
+
+<!-- 9.2.55 copyrightTag . 55 -->
+<xs:element name="copyrightTag" type="multiLocalizedUnicodeType"/>
+
+<!-- 9.2.56 customToStandardPccTag  55 -->
+<xs:element name="customToStandardPccTag" type="multiProcessElementsType"/>
+
+<!-- 9.2.57 cxfTag . 56 -->
+<xs:element name="copyrightTag" type="multiLocalizedUnicodeType"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="utf8Type"/>
+      <xs:enumeration type="utf8ZipType"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- 9.2.58 deviceMfgDescTag  56 -->
+<xs:element name="deviceMfgDescTag" type="multiLocalizedUnicodeType"/>
+
+<!-- 9.2.59 deviceModelDescTag . 56 -->
+<xs:element name="deviceModelDescTag" type="multiLocalizedUnicodeType"/>
+
+<!-- 9.2.60 directionalAToB0Tag  56 -->
+<xs:element name="directionalAToB0Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.61 directionalAToB1Tag  57 -->
+<xs:element name="directionalAToB1Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.62 directionalfAToB2Tag . 57 -->
+<xs:element name="directionalfAToB2Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.63 directionalAToB3Tag  58 -->
+<xs:element name="directionalAToB3Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.64 directionalBToA0Tag  58 -->
+<xs:element name="directionalBToA0Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.65 directionalBToA1Tag  59 -->
+<xs:element name="directionalBToA1Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.66 directionalBToA2Tag  59 -->
+<xs:element name="directionalBToA2Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.67 directionalBToA3Tag  59 -->
+<xs:element name="directionalBToA3Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.68 directionalBToD0Tag  60 -->
+<xs:element name="directionalBToD0Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.69 directionalBToD1Tag  60 -->
+<xs:element name="directionalBToD1Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.70 directionalBToD2Tag  61 -->
+<xs:element name="directionalBToD2Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.71 directionalBToD3Tag  61 -->
+<xs:element name="directionalBToD3Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.72 directionalDToB0Tag  61 -->
+<xs:element name="directionalDToB0Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.73 directionalDToB1Tag  62 -->
+<xs:element name="directionalDToB1Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.74 directionalDToB2Tag  62 -->
+<xs:element name="directionalDToB2Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.75 directionalDToB3Tag  62 -->
+<xs:element name="directionalDToB3Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.76 DToB0Tag . 63 -->
+<xs:element name="DToB0Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.77 DToB1Tag . 63 -->
+<xs:element name="DToB1Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.78 DToB2Tag . 63 -->
+<xs:element name="DToB2Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.79 DToB3Tag . 64 -->
+<xs:element name="DToB3Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.80 gamutBoundaryDescription0Tag  64 -->
+<xs:element name="gamutBoundaryDescription0Tag" type="gamutBoundaryDescriptionType"/>
+
+<!-- 9.2.81 gamutBoundaryDescription1Tag  64 -->
+<xs:element name="gamutBoundaryDescription1Tag" type="gamutBoundaryDescriptionType"/>
+
+<!-- 9.2.82 gamutBoundaryDescription2Tag  64 -->
+<xs:element name="gamutBoundaryDescription2Tag" type="gamutBoundaryDescriptionType"/>
+
+<!-- 9.2.83 gamutBoundaryDescription3Tag  64 -->
+<xs:element name="gamutBoundaryDescription3Tag" type="gamutBoundaryDescriptionType"/>
+
+<!-- 9.2.84 multiplexDefaultValuesTag  64 -->
+<xs:element name="multiplexDefaultValuesTag">
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="uInt8NumberArray"/>
+      <xs:enumeration type="uInt8NumberArray"/>
+      <xs:enumeration type="float16NumberArray"/>
+      <xs:enumeration type="float32NumberArray"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- 9.2.85 multiplexTypeArrayTag . 65 -->
+<xs:element name="multiplexTypeArrayTag" type="tagArray"/>
+
+<!-- 9.2.86 measurementInfoTag  65 -->
+<xs:element name="multiplexTypeArrayTag" type="structType"/>
+
+<!-- 9.2.87 measurementInputInfoTag  65 -->
+<xs:element name="multiplexTypeArrayTag" type="structType"/>
+
+<!-- 9.2.88 mediaWhitePointTag  66 -->
+<xs:element name="mediaWhitePointTag">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="XYZArrayType"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- 9.2.89 metadataTag . 66 -->
+<xs:element name="metadataTag" type="dictType"/>
+
+<!-- 9.2.90 MToA0Tag  66 -->
+<xs:element name="MToA0Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.91 MToB0Tag  67 -->
+<xs:element name="MToB0Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.92 MToB1Tag  67 -->
+<xs:element name="MToB1Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.93 MToB2Tag  67 -->
+<xs:element name="MToB2Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.94 MToB3Tag  68 -->
+<xs:element name="MToB3Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.95 MToS0Tag  68 -->
+<xs:element name="MToS0Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.96 MToS1Tag  68 -->
+<xs:element name="MToS1Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.97 MToS2Tag  69 -->
+<xs:element name="MToS2Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.98 MToS3Tag  69 -->
+<xs:element name="MToS3Tag" type="multiProcessElementType"/>
+
+<!-- 9.2.99 namedColorTag . 69 -->
+<xs:element name="namedColorTag" type="tagArrayType"/>
+
+<!-- 9.2.100 perceptualRenderingIntentGamutTag  70 -->
+<xs:element name="perceptualRenderingIntentGamutTag" type="signatureType"/>
+
+<!-- 9.2.101 profileDescriptionTag . 70 -->
+<xs:element name="profileDescriptionTag" type="multiLocalizedUnicodeType"/>
+
+<!-- 9.2.102 profileSequenceInformationTag  70 -->
+<xs:element name="profileSequenceInformationTag" type="tagArrayType"/>
+
+<!-- 9.2.103 referenceNameTag . 70 -->
+<xs:element name="referenceNameTag" type="utf8Type"/>
+
+<!-- 9.2.104 saturationRenderingIntentGamutTag . 71 -->
+<xs:element name="saturationRenderingIntentGamutTag" type="signatureType"/>
+
+<!-- 9.2.105 spectralViewingConditionsTag . 71 -->
+<xs:element name="spectralViewingConditionsTag" type="spectralViewingConditionsType"/>
+
+<!-- 9.2.106 spectralWhitePointTag. 71 -->
+<xs:element name="spectralWhitePointTag" type="signatureType"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="float16NumberArray"/>
+      <xs:enumeration type="float32NumberArray"/>
+      <xs:enumeration type="uInt16ArrayType"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- 9.2.107 standardToCustomPccTag  71 -->
+<xs:element name="standardToCustomPccTag" type="multiProcessElementsType"/>
+
+<!-- 9.2.108 surfaceMapTag . 72 -->
+<xs:element name="surfaceMapTag" type="signatureType"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="embeddedNormalImageType"/>
+      <xs:enumeration type="embeddedHeightImageType"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- 9.2.109 technologyTag  72 -->
+<xs:element name="technologyTag" type="signatureType"/>
