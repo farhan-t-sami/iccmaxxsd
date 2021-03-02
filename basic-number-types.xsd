@@ -62,9 +62,40 @@
 </xs:simpleType>
 
 <!-- 4.14 XYZNumber - 9 -->
-<xs:simpleType name="XYZNumber">
-    <xs:restriction base="xs:s15Fixed16Number"/>
-</xs:simpleType>
+<xs:complexType name="XYZNumber">
+    <xs:sequence>
+    <xs:element ref="XYZNumber"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:element name="XYZNumber">
+    <xs:complexType> 
+        <xs:attribute name="X" use="required">
+        <xs:simpleType>
+            <xs:restriction base="xs:float">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="2"/>
+            </xs:restriction>
+        </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="Y" use="required">
+        <xs:simpleType>
+            <xs:restriction base="xs:float">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="2"/>
+            </xs:restriction>
+        </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="Z" use="required">
+        <xs:simpleType>
+            <xs:restriction base="xs:float">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="2"/>
+            </xs:restriction>
+        </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+</xs:element>
 
 <!-- 4.15 Seven-bit ASCII - 9 -->
 <xs:simpleType name="Seven-bit ASCII">
@@ -105,7 +136,24 @@
 4.2.5 Sparse matrix encodings  -  4
 
 4.2.6 sparseMatrixEncodingType  -  6
-4.2.7 spectralRange  -  7
+
+<!-- 4.2.7 spectralRange  -  7 -->
+<xs:element name="SpectralRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Wavelengths"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+<xs:element name="Wavelengths">
+    <xs:complexType>
+      <xs:attribute name="end" use="required" type="xs:decimal"/>
+      <xs:attribute name="start" use="required" type="xs:decimal"/>
+      <xs:attribute name="steps" use="required" type="xs:integer"/>
+    </xs:complexType>
+</xs:element>
+
+
 4.2.8 tintArray  -  7
 4.2.9 valueEncodingType  -  7
 

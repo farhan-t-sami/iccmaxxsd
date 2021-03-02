@@ -174,7 +174,25 @@
     </xs:sequence> 
 </xs:complexType>
 
-10.17 profileSequenceDescType .70
+<!-- 10.17 profileSequenceDescType .70 -->
+<xs:complexType name="profileSequenceDescType">
+  <xs:sequence>
+    <xs:element name="TagSignature" type="signatureType" fixed="pseq"/>
+    <xs:element name="profileSequenceDescType" type="profileDescription" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="profileSequenceDescType">
+  <xs:sequence>
+    <xs:element name="DeviceManufactureSignature" type="xs:string"/>
+    <xs:element name="DeviceModelSignature" type="xs:string"/>
+    <xs:element name="DeviceAttributes" type="xs:string"/>
+    <xs:element name="Technology" type="xs:string"/>
+    <xs:element name="DeviceManufacturer" type="multiLocalizedUnicodeType"/>
+    <xs:element name="DeviceModel" type="multiLocalizedUnicodeType"/>
+  </xs:sequence>
+</xs:complexType>
+
 
 10.18 profileSequenceIdentifierType 71
 
@@ -205,7 +223,7 @@
     </xs:sequence> 
 </xs:complexType>	
 
-10.24 uInt16ArrayType 76
+<!-- 10.24 uInt16ArrayType 76 -->
 <xs:complexType name="uInt16ArrayType">
     <xs:sequence>
       <xs:element name="TagSignature" type="signatureType" fixed="ui16"/>
@@ -237,7 +255,15 @@
     </xs:sequence> 
 </xs:complexType>	
 
-10.28 viewingConditionsType .77
+<!-- 10.28 viewingConditionsType .77 -->
+<xs:complexType name="viewConditionsType">
+    <xs:sequence>
+      <xs:element name="TagSignature" type="signatureType" fixed="view"/>
+      <xs:element name="IlluminantXYZ" type="XYZNumber"/>
+      <xs:element name="SurroundXYZ" type="XYZNumber"/>
+      <xs:element name="IllumType" type="measurementType"/>
+    </xs:sequence>
+  </xs:complexType>
 
 <!-- 10.29 XYZType .78 -->
 <xs:complexType name="XYZType">
