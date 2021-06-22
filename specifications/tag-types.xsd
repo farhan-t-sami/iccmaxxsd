@@ -130,7 +130,29 @@
     </xs:sequence>
 </xs:complexType>
 
-10.14 multiProcessElementsType 62
+<!-- 10.14 multiProcessElementsType 62 -->
+<xs:complexType name="multiProcessElementType">
+  <xs:sequence>
+    <xs:element ref="multiProcessElementType"/>
+  </xs:sequence>
+</xs:complexType>
+<xs:element name="multiProcessElementType">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="MultiProcessElements"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+<xs:element name="MultiProcessElements">
+  <xs:complexType>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="CurveSetElement"/>
+      <xs:element ref="MatrixElement"/>
+    </xs:choice>
+    <xs:attribute name="InputChannels" use="required" type="xs:integer"/>
+    <xs:attribute name="OutputChannels" use="required" type="xs:integer"/>
+  </xs:complexType>
+</xs:element>
 
 <!-- 10.15 namedColor2Type .68 -->
 <xs:complexType name="namedColor2Type">

@@ -1,0 +1,92 @@
+11.2.1 calculatorElement
+
+<!-- 11.2.2 curveSetElement -->
+<xs:element name="CurveSetElement">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" ref="SegmentedCurve"/>
+        </xs:sequence>
+        <xs:attribute name="InputChannels" use="required" type="xs:integer"/>
+        <xs:attribute name="OutputChannels" use="required" type="xs:integer"/>
+    </xs:complexType>
+</xs:element>
+<xs:element name="SegmentedCurve">
+    <xs:complexType>
+    <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="FormulaSegment"/>
+    </xs:sequence>
+    </xs:complexType>
+</xs:element>
+<xs:element name="FormulaSegment">
+    <xs:complexType mixed="true">
+        <xs:attribute name="End" use="required"/>
+        <xs:attribute name="FunctionType" use="required" type="xs:integer"/>
+        <xs:attribute name="Start" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+</xs:element>
+
+11.2.3 CLUTElement
+11.2.4 emissionCLUTElement
+11.2.5 emissionMatrixElement
+11.2.6 emissionObserverElement 
+11.2.7 extendedCLUTElement
+11.2.8 inverseEmissionMatrixElement
+11.2.9 JabToXYZElement 
+
+<!-- 11.2.10 matrixElement -->
+<xs:element name="MatrixElement">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="MatrixData"/>
+        </xs:sequence>
+        <xs:attribute name="InputChannels" use="required" type="xs:integer"/>
+        <xs:attribute name="OutputChannels" use="required" type="xs:integer"/>
+    </xs:complexType>
+</xs:element>
+<xs:element name="MatrixData" type="xs:string"/>
+<xs:complexType name="MemberTags">
+    <xs:sequence>
+        <xs:element ref="MemberTags"/>
+    </xs:sequence>
+</xs:complexType>
+<xs:element name="MemberTags">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element minOccurs="0" ref="tnt0PcsDataMbr"/>
+            <xs:element minOccurs="0" ref="nmclNameNmClrMbr"/>
+            <xs:element minOccurs="0" ref="nmclTintMbr"/>
+            <xs:element minOccurs="0" ref="nmclPcsDataMbr"/>
+            <xs:choice>
+                <xs:element ref="nmclSpectralDataMbr"/>
+                <xs:element ref="tnt0SpectralDataMbr"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+<xs:element name="tnt0PcsDataMbr" type="float16ArrayType"/>
+<xs:element name="nmclNameNmClrMbr">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="utf8Type"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+<xs:element name="utf8Type">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="TagSignature" type="signatureType" fixed="utf8"/>
+            <xs:element name="TextData" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+<xs:element name="nmclTintMbr" type="float16ArrayType"/>
+<xs:element name="nmclPcsDataMbr" type="float16ArrayType"/>
+<xs:element name="nmclSpectralDataMbr" type="float16ArrayType"/>
+<xs:element name="tnt0SpectralDataMbr" type="float16ArrayType"/>
+
+11.2.11 sparseMatrixElement
+11.2.12 reflectanceCLUTElement
+11.2.13 reflectanceObserverElement
+11.2.14 tintArrayElement
+11.2.15 XYZToJabElement 
+11.2.16 “Future” expansion elements 
