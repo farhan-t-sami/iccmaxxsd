@@ -103,23 +103,23 @@
 <!-- 6d656173 'meas' measurementType -->
 <xs:complexType name="measurementType">
     <xs:sequence>
-    <xs:element name="TagSignature" type="signatureType" fixed="meas"/>
-    <xs:element name="StandardObserver" type="Hex8Byte" />
-    <xs:element name="MeasurmentBacking" type="XYZNumber" />
-    <xs:element name="Geometry" type="Hex8Byte" />
-    <xs:element name="Flare" type="Hex8Byte" />
-    <xs:element name="Standardilluminant" type="Hex8Byte" />
+        <xs:element name="TagSignature" type="signatureType" fixed="meas"/>
+        <xs:element name="StandardObserver" type="Hex8Byte" />
+        <xs:element name="MeasurmentBacking" type="XYZNumber" />
+        <xs:element name="Geometry" type="Hex8Byte" />
+        <xs:element name="Flare" type="Hex8Byte" />
+        <xs:element name="Standardilluminant" type="Hex8Byte" />
     </xs:sequence>   
 </xs:complexType>
 
 <!-- 6d667431 'mft1' lut8Type -->
 <xs:complexType name="lut8Type">
     <xs:sequence>
-    <xs:element name="TagSignature" type="signatureType" fixed="mft1"/>    
-    <xs:element name="Matrix" type="Matrix"/>
-    <xs:element name="InputTable" type="Table8"/>
-    <xs:element name="CLUT" type="CLUT"/>
-    <xs:element name="OutputTable" type="Table8"/>     
+        <xs:element name="TagSignature" type="signatureType" fixed="mft1"/>    
+        <xs:element name="Matrix" type="Matrix"/>
+        <xs:element name="InputTable" type="Table8"/>
+        <xs:element name="CLUT" type="CLUT"/>
+        <xs:element name="OutputTable" type="Table8"/>     
     </xs:sequence>
     <xs:attribute name="InputChannels" type="uInt8Number"/>
     <xs:attribute name="OutputChannels" type="uInt8Number"/>
@@ -128,11 +128,11 @@
 <!-- 6d667432 'mft2' lut16Type -->
 <xs:complexType name="lut16Type">
     <xs:sequence>
-    <xs:element name="TagSignature" type="signatureType" fixed="mft2"/>    
-    <xs:element name="Matrix" type="Matrix"/>
-    <xs:element name="InputTable" type="Table16"/>
-    <xs:element name="CLUT" type="CLUT"/>
-    <xs:element name="OutputTable" type="Table16"/>     
+        <xs:element name="TagSignature" type="signatureType" fixed="mft2"/>    
+        <xs:element name="Matrix" type="Matrix"/>
+        <xs:element name="InputTable" type="Table16"/>
+        <xs:element name="CLUT" type="CLUT"/>
+        <xs:element name="OutputTable" type="Table16"/>     
     </xs:sequence>
     <xs:attribute name="InputChannels" type="uInt8Number"/>
     <xs:attribute name="OutputChannels" type="uInt8Number"/>
@@ -144,20 +144,20 @@
 <!-- 6e636c32 'ncl2' namedColor2Type -->
 <xs:complexType name="namedColor2Type">
     <xs:sequence>
-    <xs:element name="TagSignature" type="signatureType" fixed="ncl2"/>
-    <xs:element name="NamedColors">
-        <xs:complexType>
-        <xs:attribute name="VendorFlag" type="xs:string"/>
-        <xs:attribute name="CountOfDeviceCoords" type="uInt32Number"/>
-        <xs:attribute name="DeviceEncoding" type="uInt32Number"/>
-        <xs:attribute name="Prefix" type="xs:string"/>
-        <xs:attribute name="Suffix" type="xs:string"/>
-        </xs:complexType>
-    </xs:element>
-    <xs:choice>
-    <xs:element name="LABNamedColor" type="LABNamedColorData"/>
-    <xs:element name="XYZNamedColor" type="XZYNamedColorData"/>
-    </xs:choice>
+        <xs:element name="TagSignature" type="signatureType" fixed="ncl2"/>
+        <xs:element name="NamedColors">
+            <xs:complexType>
+                <xs:attribute name="VendorFlag" type="xs:string"/>
+                <xs:attribute name="CountOfDeviceCoords" type="uInt32Number"/>
+                <xs:attribute name="DeviceEncoding" type="uInt32Number"/>
+                <xs:attribute name="Prefix" type="xs:string"/>
+                <xs:attribute name="Suffix" type="xs:string"/>
+            </xs:complexType>
+        </xs:element>
+        <xs:choice>
+            <xs:element name="LABNamedColor" type="LABNamedColorData"/>
+            <xs:element name="XYZNamedColor" type="XZYNamedColorData"/>
+        </xs:choice>
     </xs:sequence>
 </xs:complexType>
 
@@ -177,10 +177,10 @@
         </xs:element>
         <xs:element name="Data" minOccurs="0" maxOccurs="unbounded">
             <xs:simpleType>
-            <xs:restriction base="s15Fixed16Number">
-                <xs:minInclusive value="1"/>
-                <xs:maxInclusive value="7"/>
-            </xs:restriction>
+                <xs:restriction base="s15Fixed16Number">
+                    <xs:minInclusive value="1"/>
+                    <xs:maxInclusive value="7"/>
+                </xs:restriction>
             </xs:simpleType>
         </xs:element>
     </xs:sequence> 
@@ -189,16 +189,16 @@
 <!-- 70736571 'pseq' profileSequenceDescType -->
 <xs:complexType name="profileSequenceDescType">
     <xs:sequence>
-    <xs:element name="TagSignature" type="signatureType" fixed="pseq"/>
-    <xs:element name="Data" type="" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="TagSignature" type="signatureType" fixed="pseq"/>
+        <xs:element name="Data" type="" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence> 
 </xs:complexType>	
 
 <!-- 72637332 'rcs2' responseCurveSet16Type -->
 <xs:complexType name="responseCurveSet16Type">
     <xs:sequence>
-    <xs:element name="TagSignature" type="signatureType" fixed="pseq"/>
-    <xs:element name="Data" type="" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="TagSignature" type="signatureType" fixed="pseq"/>
+        <xs:element name="Data" type="" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence> 
 </xs:complexType>
 
@@ -208,8 +208,8 @@
 <!-- 73663332 'sf32' s15Fixed16ArrayType -->
 <xs:complexType name="s15Fixed16ArrayType">
     <xs:sequence>
-    <xs:element name="TagSignature" type="signatureType" fixed="sf32"/>
-    <xs:element name="Data" type="s15Fixed16Number" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="TagSignature" type="signatureType" fixed="sf32"/>
+        <xs:element name="Data" type="s15Fixed16Number" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence> 
 </xs:complexType>	
 
@@ -227,40 +227,40 @@
 <!-- 75663332 'uf32' u16Fixed16ArrayType -->
 <xs:complexType name="u16Fixed16ArrayType">
     <xs:sequence>
-    <xs:element name="TagSignature" type="signatureType" fixed="uf32"/>
-    <xs:element name="Data" type="u16Fixed16Number" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="TagSignature" type="signatureType" fixed="uf32"/>
+        <xs:element name="Data" type="u16Fixed16Number" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence> 
 </xs:complexType>	
 
 <!-- 75693038 'ui08' uInt8ArrayType -->
 <xs:complexType name="uInt8ArrayType">
     <xs:sequence>
-    <xs:element name="TagSignature" type="signatureType" fixed="ui08"/>
-    <xs:element name="Data" type="uInt8Number" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="TagSignature" type="signatureType" fixed="ui08"/>
+        <xs:element name="Data" type="uInt8Number" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence> 
 </xs:complexType>	
 
 <!-- 75693136 'ui16' uInt16ArrayType -->
 <xs:complexType name="uInt16ArrayType">
     <xs:sequence>
-    <xs:element name="TagSignature" type="signatureType" fixed="ui16"/>
-    <xs:element name="Data" type="uInt16Number" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="TagSignature" type="signatureType" fixed="ui16"/>
+        <xs:element name="Data" type="uInt16Number" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence> 
 </xs:complexType>	
 
 <!-- 75693332 'ui32' uInt32ArrayType -->
 <xs:complexType name="uInt32ArrayType">
     <xs:sequence>
-    <xs:element name="TagSignature" type="signatureType" fixed="ui32"/>
-    <xs:element name="Data" type="uInt32Number" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="TagSignature" type="signatureType" fixed="ui32"/>
+        <xs:element name="Data" type="uInt32Number" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence> 
 </xs:complexType>	
 
 <!-- 75693634 'ui64' uInt64ArrayType -->
 <xs:complexType name="uInt64ArrayType">
     <xs:sequence>
-    <xs:element name="TagSignature" type="signatureType" fixed="ui64"/>
-    <xs:element name="Data" type="uInt64Number" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="TagSignature" type="signatureType" fixed="ui64"/>
+        <xs:element name="Data" type="uInt64Number" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence> 
 </xs:complexType>	
 
@@ -278,26 +278,26 @@
         </xs:element>
         <xs:element name="ObserverFuncs">
             <xs:complexType>
-            <xs:simpleContent>
-                <xs:extension base="xs:string">
-                    <xs:attribute name="start" type="xs:unsignedShort" use="required" />
-                    <xs:attribute name="end" type="xs:unsignedShort" use="required" />
-                    <xs:attribute name="steps" type="xs:unsignedByte" use="required" />
-                </xs:extension>
-            </xs:simpleContent>
+                <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                        <xs:attribute name="start" type="xs:unsignedShort" use="required" />
+                        <xs:attribute name="end" type="xs:unsignedShort" use="required" />
+                        <xs:attribute name="steps" type="xs:unsignedByte" use="required" />
+                    </xs:extension>
+                </xs:simpleContent>
             </xs:complexType>
         </xs:element>
         <xs:element name="StdIlluminant" type="xs:string" />
         <xs:element name="ColorTemperature" type="xs:unsignedShort" />
         <xs:element name="IlluminantSPD">
             <xs:complexType>
-            <xs:simpleContent>
-                <xs:extension base="xs:string">
-                    <xs:attribute name="start" type="xs:unsignedShort" use="required" />
-                    <xs:attribute name="end" type="xs:unsignedShort" use="required" />
-                    <xs:attribute name="steps" type="xs:unsignedByte" use="required" />
-                </xs:extension>
-            </xs:simpleContent>
+                <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                        <xs:attribute name="start" type="xs:unsignedShort" use="required" />
+                        <xs:attribute name="end" type="xs:unsignedShort" use="required" />
+                        <xs:attribute name="steps" type="xs:unsignedByte" use="required" />
+                    </xs:extension>
+                </xs:simpleContent>
             </xs:complexType>
         </xs:element>
         <xs:element name="SurroundXYZ">
