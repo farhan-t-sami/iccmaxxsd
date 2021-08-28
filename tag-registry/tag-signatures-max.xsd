@@ -450,4 +450,4 @@
 <xs:element name="ceptWhitePointLuminanceMbr" type="float32Number"/>
 
 <!-- ICC 7866726d 'xfrm' -->
-<xs:element name="brdfTransformMbr" type="multiProcessElementType."/>
+<xs:element name="brdfTransformMbr" type="multiProcessElementType"/>

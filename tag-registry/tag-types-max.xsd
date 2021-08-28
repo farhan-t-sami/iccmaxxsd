@@ -1,0 +1,362 @@
+<!-- ICC 4a746f58 'JtoX' JabToXYZElement -->
+<xs:complexType name="JabToXYZElement">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType"/>
+        <xs:element name="WhitePointXYZ" type="floatXYZNumber"/>
+        <xs:element name="Luminance" type="float32Number"/>
+        <xs:element name="BackgroundLuminant" type="float32Number"/>
+        <xs:element name="Impact" type="float32Number"/>
+        <xs:element name="ChromaticInductionFactor" type="float32Number"/>  
+        <xs:element name="AdaptationFactor" type="float32Number"/>  
+    </xs:sequence>
+    <xs:attribute name="InputChannels" type="uInt16Number"/>
+    <xs:attribute name="OutputChannels" type="uInt16Number"/>
+</xs:complexType>	
+
+<!-- ICC 58746f4a 'XtoJ' XYZToJabElement -->
+<xs:complexType name="XYZToJabElement">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType"/>
+        <xs:element name="WhitePointXYZ" type="floatXYZNumber"/>
+        <xs:element name="Luminance" type="float32Number"/>
+        <xs:element name="BackgroundLuminant" type="float32Number"/>
+        <xs:element name="Impact" type="float32Number"/>
+        <xs:element name="ChromaticInductionFactor" type="float32Number"/>  
+        <xs:element name="AdaptationFactor" type="float32Number"/>  
+    </xs:sequence>
+    <xs:attribute name="InputChannels" type="uInt16Number"/>
+    <xs:attribute name="OutputChannels" type="uInt16Number"/>
+</xs:complexType>	
+
+<!-- ICC 62726466 'brdf' brdfTransformStructure -->
+<xs:complexType name="brdfTransformStructure">
+    <xs:sequence>
+        <xs:element name="brdfTypeMbr" type="signatureType" minOccurs="1"/>
+        <xs:element name="brdfFunctionMbr" type="signatureType" minOccurs="1"/>
+        <xs:element name="brdfParamsPerChannelMbr" type="uInt16Number" minOccurs="1"/>
+        <xs:element name="brdfTransformMbr" type="multiProcessElement" minOccurs="1"/>
+    </xs:sequence>
+</xs:complexType>	
+
+<!-- ICC 63616C63 'calc' calculatorElement -->
+<xs:element name="calculatorElement">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="CalculatorData"/>
+        </xs:sequence>
+        <xs:attribute name="InputChannels" use="required" type="xs:integer"/>
+        <xs:attribute name="OutputChannels" use="required" type="xs:integer"/>
+        <xs:attribute name="SubElements" use="required" type="xs:integer"/>
+    </xs:complexType>
+</xs:element>
+<xs:element name="CalculatorData" type="xs:string"/>
+
+<!-- ICC 63657074 'cept' colorEncodingParamsStructure -->
+<xs:element name="colorEncodingParamsStructure" type="tagStructType"/>
+
+<!-- ICC 636c726f 'clro' colorantOrderType -->
+<xs:complexType name="colorantOrderType">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType" fixed="clro"/>
+        <xs:element name="n" type="uInt32Number"/>
+        <xs:element name="colorantOrder" type="uInt8Number"/>
+        <xs:element name="Data" type="uInt8Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+</xs:complexType>
+
+<!-- ICC 636C7574 'clut' CLUTElement -->
+<xs:complexType name="CLUT">
+    <xs:sequence>
+        <xs:element name="GridPoints" type="uInt8Number"/>    
+        <xs:element name="TableData">			   
+            <xs:simpleType>
+            <xs:union memberTypes="Table8 Table16"/>
+            </xs:simpleType>			  
+        </xs:element>   
+    </xs:sequence>
+</xs:complexType>
+
+<!-- ICC 63757266 'curf' segmentedCurve -->
+<xs:element name="SegmentedCurve">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" ref="FormulaSegment"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+<xs:element name="FormulaSegment">
+    <xs:complexType mixed="true">
+        <xs:attribute name="End" use="required"/>
+        <xs:attribute name="FunctionType" use="required" type="xs:integer"/>
+        <xs:attribute name="Start" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+</xs:element>
+
+<!-- ICC 63767374 'cvst' curveSetElement -->
+<xs:element name="CurveSetElement">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" ref="SegmentedCurve"/>
+        </xs:sequence>
+        <xs:attribute name="InputChannels" use="required" type="xs:integer"/>
+        <xs:attribute name="OutputChannels" use="required" type="xs:integer"/>
+    </xs:complexType>
+</xs:element>
+
+<!-- ICC 64617461 'data' dataType -->
+<xs:complexType name="dataType">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType" fixed="data"/>
+        <xs:element name="DataFlag" type="Hex8Byte"/>
+        <xs:element name="Data" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+</xs:complexType>
+
+<!-- ICC 646f7263 'dorc' imageStateData -->
+<!-- No elaborate details on specification -->
+
+<!-- ICC 6474696d 'dtim' dateTimeType -->
+<!-- XML default type -->
+
+<!-- ICC 65636c74 'eclt' emissionCLUTElement -->
+<xs:element name="emissionCLUTElement" type="signatureType"/>
+
+<!-- ICC 6568696d 'ehim' embeddedHeightImageType -->
+<xs:element name="embeddedHeightImageType" type="signatureType"/>
+
+<!-- ICC 656d7478 'emtx' emissionMatrixElement -->
+<xs:element name="emissionMatrixElement" type="signatureType"/>
+
+<!-- ICC 656e696d 'enim' embeddedNormalImageType -->
+<xs:element name="embeddedNormalImageType" type="signatureType"/>
+
+<!-- ICC 656f6273 'eobs' emissionObserverElement -->
+<xs:element name="emissionObserverElement" type="signatureType"/>
+
+<!-- ICC 666c3136 'fl16' float16ArrayType -->
+<xs:complexType name="float16ArrayType">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType" fixed="fl16"/>
+        <xs:element name="Data" type="float16Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+</xs:complexType>	
+
+<!-- ICC 666c3332 'fl32' float32ArrayType -->
+<xs:complexType name="float32ArrayType">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType" fixed="fl32"/>
+        <xs:element name="Data" type="float32Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>     
+</xs:complexType>	 
+
+<!-- ICC 666c3634 'fl64' float64ArrayType -->
+<xs:complexType name="float64ArrayType">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType" fixed="fl64"/>
+        <xs:element name="Data" type="float64Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>   
+</xs:complexType>	
+
+<!-- ICC 66756E63 'func' brdfFunctionMbr -->
+<xs:element name="brdfFunctionMbr" type="signatureType"/>
+
+<!-- ICC 67646220 'gbd ' NOT-AVAILABLE -->
+
+<!-- ICC 69656d78 'iemx' inverseEmissionMatrixElement -->
+<xs:element name="inverseEmissionMatrixElement" type="signatureType"/>
+
+<!-- ICC 6D617466 'matf' matrixElement -->
+<xs:element name="MatrixElement">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="MatrixData"/>
+        </xs:sequence>
+        <xs:attribute name="InputChannels" use="required" type="xs:integer"/>
+        <xs:attribute name="OutputChannels" use="required" type="xs:integer"/>
+    </xs:complexType>
+</xs:element>
+<xs:element name="MatrixData" type="xs:string"/>
+
+<!-- ICC 6d656173 'meas' measurementType -->
+<xs:complexType name="measurementType">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType" fixed="meas"/>
+        <xs:element name="StandardObserver" type="Hex8Byte" />
+        <xs:element name="MeasurmentBacking" type="XYZNumber" />
+        <xs:element name="Geometry" type="Hex8Byte" />
+        <xs:element name="Flare" type="Hex8Byte" />
+        <xs:element name="Standardilluminant" type="Hex8Byte" />
+    </xs:sequence>   
+</xs:complexType>
+
+<!-- ICC 6e6d636c 'nmcl' namedColorStructure -->
+<xs:element name="nmcl" type="tagArrayType"/>
+
+<!-- ICC 70617266 'parf' -->
+<xs:element name="parf" type="signatureType"/>
+
+<!-- ICC 70696e66 'pinf' profileInfoStructure -->
+<xs:complexType name="profileInfoStructure">
+    <xs:sequence>
+        <xs:element name="pinfAttributesMbr" type="uInt64Number"/>
+        <xs:element name="pinfProfileDescMbr" type="multiLocalizedUnicodeType"/>
+        <xs:element name="pinfProfileIDMbr" type="uInt8NumberArray"/>
+        <xs:element name="pinfManufacturerDescMbr" type="multiLocalizedUnicodeType"/>
+        <xs:element name="pinfManufacturerSigMbr" type="signatureType"/>
+        <xs:element name="pinfModelDescMbr" type="multiLocalizedUnicodeType"/>  
+        <xs:element name="pinfModelSigMbr" type="signatureType"/>  
+        <xs:element name="pinfRenderTransformMbr" type="uInt32Number"/>  
+        <xs:element name="pinfTechnologyMbr" type="signatureType"/>  
+    </xs:sequence>
+</xs:complexType>	
+
+<!-- ICC 72636c74 'rclt' reflectanceCLUTElement -->
+<xs:complexType name="profileInfoStructure">
+    <xs:sequence>
+        <xs:element name="flags" type="uInt16Number"/>
+        <xs:element name="SpectralRange" type="spectralRange"/>
+        <xs:element name="CLUT" type="uInt16Number"/>
+        <xs:element name="pinfManufacturerDescMbr" type="multiLocalizedUnicodeType"/>
+        <xs:element name="pinfManufacturerSigMbr" type="signatureType"/>
+        <xs:element name="pinfModelDescMbr" type="multiLocalizedUnicodeType"/>  
+        <xs:element name="pinfModelSigMbr" type="signatureType"/>  
+        <xs:element name="pinfRenderTransformMbr" type="uInt32Number"/>  
+        <xs:element name="pinfTechnologyMbr" type="signatureType"/>  
+    </xs:sequence>
+    <xs:attribute name="InputChannels" type="uInt8Number"/>
+    <xs:attribute name="OutputChannels" type="uInt8Number"/>
+</xs:complexType>	
+
+<!-- ICC 726f6273 'robs' reflectanceObserverElement -->
+<xs:complexType name="reflectanceObserverElement">
+    <xs:sequence>
+        <xs:element name="SpectralRange" type="spectralRange"/>
+        <xs:element name="AbsoluteFlag" type="uInt16Number"/>
+        <xs:element name="SpectralReflectanceOfWhite" type="float32Number"/>
+    </xs:sequence>
+    <xs:attribute name="InputChannels" type="uInt8Number"/>
+    <xs:attribute name="OutputChannels" type="uInt8Number"/>
+</xs:complexType>
+
+<!-- ICC 73616D66 'samf'  -->
+<xs:element name="samf" type="signatureType"/>
+
+<!-- ICC 73663332 'sf32' s15Fixed16ArrayType -->
+<xs:complexType name="s15Fixed16ArrayType">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType" fixed="sf32"/>
+        <xs:element name="Data" type="s15Fixed16Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+</xs:complexType>	
+
+<!-- ICC 736d6174 'smat' sparseMatrixArrayType -->
+<xs:complexType name="sparseMatrixArrayType">
+    <xs:sequence>
+        <xs:element name="NumberOfChanbels" type="uInt16Number"/>
+        <xs:element name="LUTEncodingType" type="sparseMatrixEncodingType"/>
+        <xs:element name="Matrices" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:restriction>
+            <xs:enumeration type="sparseMatrixUInt8"/>
+            <xs:enumeration type="sparseMatrixUInt16"/>
+            <xs:enumeration type="sparseMatrixFloat16"/>
+            <xs:enumeration type="sparseMatrixFloat32"/>
+        </xs:restriction>
+        </xs:element>
+    </xs:sequence> 
+</xs:complexType>
+
+<!-- ICC 736d6574 'smet' sparseMatrixElement -->
+<xs:element name="smet" type="signatureType"/>
+
+<!-- ICC 736e6766 'sngf' singleSampledCurve -->
+<xs:element name="sngf" type="signatureType"/>
+
+<!-- ICC 7376636e 'svcn' spectralViewingConditions -->
+<xs:element name="spectralViewingConditionsType">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="StdObserver"/>
+            <xs:element ref="IlluminantXYZ"/>
+            <xs:element ref="ObserverFuncs"/>
+            <xs:element ref="StdIlluminant"/>
+            <xs:element ref="ColorTemperature"/>
+            <xs:element ref="IlluminantSPD"/>
+            <xs:element ref="SurroundXYZ"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- ICC 74617279 'tary' tagArrayType -->
+<xs:element name="tary" type="signatureType"/>
+
+<!-- ICC 74696e74 'tint' tintArrayElement -->
+<xs:element name="tintArrayElement"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="uInt8Number"/>
+      <xs:enumeration type="uInt16Number"/>
+      <xs:enumeration type="float32Number"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- ICC 74737472 'tstr' tagStructType -->
+<xs:element name="tstr" type="tagStructType"/>
+
+<!-- ICC 75663332 'uf32' u16Fixed16ArrayType -->
+<xs:complexType name="u16Fixed16ArrayType">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType" fixed="uf32"/>
+        <xs:element name="Data" type="u16Fixed16Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+</xs:complexType>	
+
+<!-- ICC 75693038 'ui08' uInt8ArrayType -->
+<xs:complexType name="uInt8ArrayType">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType" fixed="ui08"/>
+        <xs:element name="Data" type="uInt8Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+</xs:complexType>
+
+<!-- ICC 75693136 'ui16' uInt16ArrayType -->
+<xs:complexType name="uInt16ArrayType">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType" fixed="ui16"/>
+        <xs:element name="Data" type="uInt16Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+</xs:complexType>
+
+<!-- ICC 75693332 'ui32' uInt32ArrayType -->
+<xs:complexType name="uInt32ArrayType">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType" fixed="ui32"/>
+        <xs:element name="Data" type="uInt32Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+</xs:complexType>	
+
+<!-- ICC 75693634 'ui64' uInt64ArrayType -->
+<xs:complexType name="uInt64ArrayType">
+    <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType" fixed="ui64"/>
+        <xs:element name="Data" type="uInt64Number" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence> 
+</xs:complexType>	
+
+<!-- ICC 75746638 'utf8' utf8Type -->
+<xs:element name="utf8Type">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="TagSignature" type="signatureType" fixed="utf8"/>
+            <xs:element name="TextData" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- ICC 78636c74 'xclt' extendedCLUTElement -->
+<xs:element name="xclt" type="signatureType"/>
+
+<!-- ICC 7a757438 'zut8' utf8ZipType -->
+<xs:element name="zut8" type="signatureType"/>
+
+<!-- ICC 7a776d6c 'zxml' NOT-AVAILABLE -->
