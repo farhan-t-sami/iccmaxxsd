@@ -116,7 +116,7 @@
 <xs:element name="namedColor2Tag" type="namedColor2Type"/>
 
 <!-- 6e636f6c 'ncol'  -->
-<!-- NA -->
+<!-- In ICC v5 -->
 
 <!-- 70726530 'pre0' preview0Tag -->
 <xs:element name="preview0Tag" type="lut8Type"/>
