@@ -162,7 +162,12 @@
 </xs:complexType>
 
 <!-- 6e636f6c 'ncol'  -->
-<!-- NA -->
+<xs:complexType name="namedColorArray">
+    <xs:sequence>
+        <xs:element name="tintZeroStructure" type="tintZeroStructure" maxOccurs="unbounded">
+        <xs:element name="namedColorStructure" type="namedColorStructure" maxOccurs="unbounded">
+    </xs:sequence>
+</xs:complexType>
 
 <!-- 70617261 'para' parametricCurveType -->
 <xs:complexType name="parametricCurveType">
