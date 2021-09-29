@@ -272,15 +272,9 @@
 <!-- 76696577 'view' viewingConditionsType -->
 <xs:complexType name="spectralViewingConditionsType">
     <xs:sequence>
-        <xs:element name="TagSignature" type="xs:string" />
-        <xs:element name="StdObserver" type="xs:string" />
-        <xs:element name="IlluminantXYZ">
-            <xs:complexType>
-                <xs:attribute name="X" type="xs:decimal" use="required" />
-                <xs:attribute name="Y" type="xs:decimal" use="required" />
-                <xs:attribute name="Z" type="xs:decimal" use="required" />
-            </xs:complexType>
-        </xs:element>
+        <xs:element name="TagSignature" type="xs:string"/>
+        <xs:element name="StdObserver" type="xs:string"/>
+        <xs:element name="IlluminantXYZ" type="XYZNumber"/>
         <xs:element name="ObserverFuncs">
             <xs:complexType>
                 <xs:simpleContent>
@@ -305,12 +299,6 @@
                 </xs:simpleContent>
             </xs:complexType>
         </xs:element>
-        <xs:element name="SurroundXYZ">
-            <xs:complexType>
-                <xs:attribute name="X" type="xs:decimal" use="required" />
-                <xs:attribute name="Y" type="xs:decimal" use="required" />
-                <xs:attribute name="Z" type="xs:decimal" use="required" />
-            </xs:complexType>
-        </xs:element>
+        <xs:element name="SurroundXYZ" type="XYZNumber"/>
     </xs:sequence>
 </xs:element>

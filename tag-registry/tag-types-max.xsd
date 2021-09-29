@@ -88,7 +88,7 @@
     <xs:complexType mixed="true">
         <xs:attribute name="End" use="required"/>
         <xs:attribute name="FunctionType" use="required" type="xs:integer"/>
-        <xs:attribute name="Start" use="required" type="xs:NMTOKEN"/>
+        <xs:attribute name="Start" use="required" type="xs:token"/>
     </xs:complexType>
 </xs:element>
 
@@ -208,7 +208,11 @@
         <xs:element name="pinfRenderTransformMbr" type="uInt32Number"/>  
         <xs:element name="pinfTechnologyMbr" type="signatureType"/>  
     </xs:sequence>
-</xs:complexType>	
+</xs:complexType>
+
+<xs:complexType name="uInt8NumberArray">
+    <xs:element maxOccurs="unbounded" type="uInt8Number"/>
+</xs:complexType>
 
 <!-- ICC 72636c74 'rclt' reflectanceCLUTElement -->
 <xs:complexType name="profileInfoStructure">
@@ -263,6 +267,22 @@
         </xs:restriction>
         </xs:element>
     </xs:sequence> 
+</xs:complexType>
+
+<xs:complexType name="sparseMatrixUInt8">
+    <xs:element type="uInt8Number" minOccurs="0" maxOccurs="unbounded"/>
+</xs:complexType>
+
+<xs:complexType name="sparseMatrixUInt16">
+    <xs:element type="uInt16Number" minOccurs="0" maxOccurs="unbounded"/>
+</xs:complexType>
+
+<xs:complexType name="sparseMatrixFloat16">
+    <xs:element type="float16Number" minOccurs="0" maxOccurs="unbounded"/>
+</xs:complexType>
+
+<xs:complexType name="sparseMatrixFloat32">
+    <xs:element type="float32Number" minOccurs="0" maxOccurs="unbounded"/>
 </xs:complexType>
 
 <!-- ICC 736d6574 'smet' sparseMatrixElement -->
