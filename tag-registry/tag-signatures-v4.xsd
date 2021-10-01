@@ -1,20 +1,36 @@
 <!-- 41324230 'A2B0'  -->
-<xs:element name="AToB0Tag" type="multiProcessElementType"/>
+<xs:element name="AToB0Tag" type="lutAtoBTypes">
+<xsd:complexType name="lutAtoBTypes">
+    <xsd:choice>
+        <xsd:element minOccurs="0" name="lut8Type" type="lut8Type"/>
+        <xsd:element minOccurs="0" name="lut16Type" type="lut16Type" />
+        <xsd:element minOccurs="0" name="lutAToBType" type="lutAToBType" />
+    </xsd:choice>
+</xsd:complexType>
+</xs:element>
 
 <!-- 41324231 'A2B1'  -->
-<xs:element name="AToB1Tag" type="multiProcessElementType"/>
+<xs:element name="AToB1Tag" type="lutTypes"/>
 
 <!-- 41324232 'A2B2'  -->
-<xs:element name="AToB2Tag" type="multiProcessElementType"/>
+<xs:element name="AToB2Tag" type="lutTypes"/>
 
 <!-- 42324130 'B2A0'  -->
-<xs:element name="BToA0Tag" type="multiProcessElementType"/>
+<xs:element name="BToA0Tag" type="lutTypes">
+<xsd:complexType name="lutBtoATypes">
+    <xsd:choice>
+        <xsd:element minOccurs="0" name="lut8Type" type="lut8Type"/>
+        <xsd:element minOccurs="0" name="lut16Type" type="lut16Type" />
+        <xsd:element minOccurs="0" name="lutBToAType" type="lutBToAType" />
+    </xsd:choice>
+</xsd:complexType>
+</xs:element>
 
 <!-- 42324131 'B2A1'  -->
-<xs:element name="BToA1Tag" type="multiProcessElementType"/>
+<xs:element name="BToA1Tag" type="lutBtoATypes"/>
 
 <!-- 42324132 'B2A2'  -->
-<xs:element name="BToA2Tag" type="multiProcessElementType"/>
+<xs:element name="BToA2Tag" type="lutBtoATypes"/>
 
 <!-- 42324430 ‘B2D0’  -->
 <xs:element name="BToD0Tag" type="multiProcessElementType"/>
@@ -44,7 +60,14 @@
 <!-- NA -->
 
 <!-- 62545243 'bTRC' blueTRCTag -->
-<xs:element name="blueTRCTag" type="curveType"/>
+<xs:element name="blueTRCTag" type="curveTypes">
+<xsd:complexType name="curveTypes">
+    <xsd:choice>
+        <xsd:element minOccurs="0" name="curveType" type="curveType"/>
+        <xsd:element minOccurs="0" name="parametricCurveType" type="parametricCurveType" />
+    </xsd:choice>
+</xsd:complexType>
+</xs:element>
 
 <!-- 6258595a 'bXYZ' blueMatrixColumnTag -->
 <xs:element name="blueMatrixColumnTag" type="XYZType"/>
@@ -62,7 +85,7 @@
 <xs:element name="chromaticAdaptationTag" type="s15Fixed16ArrayType"/>
 
 <!-- 6368726d 'chrm' chromaticityTag -->
-<xs:element name="chromaticityTag" type=""/>
+<xs:element name="chromaticityTag" type="chromaticityType"/>
 
 <!-- 63696973 'ciis' colorimetricIntentImageStateTag -->
 <xs:element name="colorimetricIntentImageStateTag" type="chromaticityType"/>
@@ -95,16 +118,16 @@
 <xs:element name="deviceMfgDescTag" type="multiLocalizedUnicodeType"/>
 
 <!-- 67545243 'gTRC' greenTRCTag -->
-<xs:element name="greenTRCTag" type="curveType"/>
+<xs:element name="greenTRCTag" type="curveTypes"/>
 
 <!-- 6758595a 'gXYZ' greenMatrixColumnTag -->
 <xs:element name="greenMatrixColumnTag" type="XYZType"/>
 
 <!-- 67616d74 'gamt' gamutTag -->
-<xs:element name="gamutTag" type="lut8Type"/>
+<xs:element name="gamutTag" type="lutBtoATypes"/>
 
 <!-- 6b545243 'kTRC' grayTRCTag -->
-<xs:element name="grayTRCTag" type="curveType"/>
+<xs:element name="grayTRCTag" type="curveTypes"/>
 
 <!-- 6c756d69 'lumi' luminanceTag -->
 <xs:element name="luminanceTag" type="XYZType"/>
@@ -119,13 +142,22 @@
 <!-- In ICC v5 -->
 
 <!-- 70726530 'pre0' preview0Tag -->
-<xs:element name="preview0Tag" type="lut8Type"/>
+<xs:element name="preview0Tag" type="lut8Type">
+<xsd:complexType name="lutABTypes">
+    <xsd:choice>
+        <xsd:element minOccurs="0" name="lut8Type" type="lut8Type"/>
+        <xsd:element minOccurs="0" name="lut16Type" type="lut16Type" />
+        <xsd:element minOccurs="0" name="lutAToBType" type="lutBToAType" />
+        <xsd:element minOccurs="0" name="lutBToAType" type="lutBToAType" />
+    </xsd:choice>
+</xsd:complexType>
+</xs:element>
 
 <!-- 70726531 'pre1' preview1Tag -->
-<xs:element name="preview1Tag" type="lut8Type"/>
+<xs:element name="preview1Tag" type="lutBtoAtypes"/>
 
 <!-- 70726532 'pre2' preview2Tag -->
-<xs:element name="preview2Tag" type="lut8Type"/>
+<xs:element name="preview2Tag" type="lutBtoAtypes"/>
 
 <!-- 70733269 'ps2i'  -->
 <!-- 70733273 'ps2s'  -->
@@ -178,7 +210,7 @@
 <xs:element name="mediaWhitePointTag">
     <xs:complexType>
         <xs:sequence>
-            <xs:element ref="XYZArrayType"/>
+            <xs:element ref="XYZType"/>
         </xs:sequence>
     </xs:complexType>
 </xs:element>

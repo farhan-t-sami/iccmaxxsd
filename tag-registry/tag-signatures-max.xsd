@@ -2,13 +2,13 @@
 <xs:element name="AToM0Tag" type="multiProcessElementType"/>
 
 <!-- ICC 43784620 'CxF' -->
-<xs:element name="copyrightTag" type="multiLocalizedUnicodeType"/>
-  <xs:simpleType>
-    <xs:restriction>
-      <xs:enumeration type="utf8Type"/>
-      <xs:enumeration type="utf8ZipType"/>
-    </xs:restriction>
-  </xs:simpleType>
+<xs:element name="copyrightTag" type="multiLocalizedUnicodeType">
+<xsd:complexType name="copyrightTypes">
+    <xsd:choice>
+        <xsd:element minOccurs="0" name="utf8Type" type="utf8Type"/>
+        <xsd:element minOccurs="0" name="utf8ZipType" type="utf8ZipType" />
+    </xsd:choice>
+</xsd:complexType>
 </xs:element>
 
 <!-- ICC 4d324130 'M2A0' -->
@@ -49,6 +49,9 @@
 
 <!-- ICC 61777063 'awpc' -->
 <xs:element name="pinfAttributesMbr" type="float32NumberArray"/>
+<xs:complexType name="float32NumberArray">
+    <xs:element maxOccurs="unbounded" type="float32Number"/>
+</xs:complexType>
 
 <!-- ICC 62414230 'bAB0' -->
 <xs:element name="brdfAToB0Tag" type="multiProcessElementType"/>
@@ -99,28 +102,35 @@
 <xs:element name="brdfDToB3Tag" type="multiProcessElementType"/>
 
 <!-- ICC 624d4230 'bMB0' -->
-<xs:element name="brdfMToB0Tag" type="tagStructType"/>
+<xs:element name="brdfMToB0Tag" type="brdfTypes">
+<xsd:complexType name="brdfTypes">
+    <xsd:choice>
+        <xsd:element minOccurs="0" name="tagStructType" type="tagStructType"/>
+        <xsd:element minOccurs="0" name="brdfTransformStructure" type="brdfTransformStructure" />
+    </xsd:choice>
+</xsd:complexType>
+</xs:element>
 
 <!-- ICC 624d4231 'bMB1' -->
-<xs:element name="brdfMToB1Tag" type="tagStructType"/>
+<xs:element name="brdfMToB1Tag" type="brdfTypes"/>
 
 <!-- ICC 624d4232 'bMB2' -->
-<xs:element name="brdfMToB2Tag" type="tagStructType"/>
+<xs:element name="brdfMToB2Tag" type="brdfTypes"/>
 
 <!-- ICC 624d4233 'bMB3' -->
-<xs:element name="brdfMToB3Tag" type="tagStructType"/>
+<xs:element name="brdfMToB3Tag" type="brdfTypes"/>
 
 <!-- ICC 624d5330 'bMS0' -->
-<xs:element name="brdfMToS0Tag" type="tagStructType"/>
+<xs:element name="brdfMToS0Tag" type="brdfTypes"/>
 
 <!-- ICC 624d5331 'bMS1' -->
-<xs:element name="brdfMToS1Tag" type="tagStructType"/>
+<xs:element name="brdfMToS1Tag" type="brdfTypes"/>
 
 <!-- ICC 624d5332 'bMS2' -->
-<xs:element name="brdfMToS2Tag" type="tagStructType"/>
+<xs:element name="brdfMToS2Tag" type="brdfTypes"/>
 
 <!-- ICC 624d5333 'bMS3' -->
-<xs:element name="brdfMToS3Tag" type="tagStructType"/>
+<xs:element name="brdfMToS3Tag" type="brdfTypes"/>
 
 <!-- ICC 62636f6c 'bcol' -->
 <xs:element name="nmclBrdfColorimetricMbr" type="multiProcessElementType"/>
@@ -142,24 +152,27 @@
 
 <!-- ICC 62697473 'bits' -->
 <xs:element name="ceptBitDepthMbr" type="uInt8NumberArray"/>
+<xs:complexType name="uInt8NumberArray">
+    <xs:element maxOccurs="unbounded" type="uInt8Number"/>
+</xs:complexType>
 
 <!-- ICC 62737030 'bsp0' -->
-<xs:element name="brdfSpectralParameter0Tag" type="tagStructType"/>
+<xs:element name="brdfSpectralParameter0Tag" type="brdfTypes"/>
 
 <!-- ICC 62737031 'bsp1' -->
-<xs:element name="brdfSpectralParameter1Tag" type="tagStructType"/>
+<xs:element name="brdfSpectralParameter1Tag" type="brdfTypes"/>
 
 <!-- ICC 62737032 'bsp2' -->
-<xs:element name="brdfSpectralParameter2Tag" type="tagStructType"/>
+<xs:element name="brdfSpectralParameter2Tag" type="brdfTypes"/>
 
 <!-- ICC 62737033 'bsp3' -->
-<xs:element name="brdfSpectralParameter3Tag" type="tagStructType"/>
+<xs:element name="brdfSpectralParameter3Tag" type="brdfTypes"/>
 
 <!-- ICC 62737063 'bspc' -->
 <xs:element name="nmclBrdfSpectralMbr" type="multiProcessElementType"/>
 
 <!-- ICC 62737072 'bspr' -->
-<xs:element name="nmclBrdfSpectralParamsMbr" type="tagStructType"/>
+<xs:element name="nmclBrdfSpectralParamsMbr" type="brdfTypes"/>
 
 <!-- ICC 63327370 'c2sp' -->
 <xs:element name="customToStandardPccTag" type="multiProcessElementsType"/>
@@ -281,18 +294,20 @@
 
 <!-- ICC 6d637461 'mcta' -->
 <xs:element name="multiplexTypeArrayTag" type="utf8TypeArray"/>
+<xs:complexType name="utf8TypeArray">
+    <xs:element maxOccurs="unbounded" type="utf8Type"/>
+</xs:complexType>
 
 <!-- ICC 6d647620 'mdv ' -->
-<xs:element name="multiplexDefaultValuesTag">
-  <xs:simpleType>
-    <xs:restriction>
-      <xs:enumeration type="uInt8NumberArray"/>
-      <xs:enumeration type="uInt8NumberArray"/>
-      <xs:enumeration type="float16NumberArray"/>
-      <xs:enumeration type="float32NumberArray"/>
-    </xs:restriction>
-  </xs:simpleType>
-</xs:element>
+<xs:element name="multiplexDefaultValuesTag" type="arrayTypes">
+<xs:complexType name="arrayTypes">
+  <xs:restriction>
+    <xs:enumeration type="uInt8NumberArray"/>
+    <xs:enumeration type="uInt8NumberArray"/>
+    <xs:enumeration type="float16NumberArray"/>
+    <xs:enumeration type="float32NumberArray"/>
+  </xs:restriction>
+</xs:complexType>
 
 <!-- ICC 6d666c72 'mflr' -->
 <xs:element name="measFlareMbr" type="float32Number"/>
@@ -307,7 +322,7 @@
 <xs:element name="measIlluminantMbr" type="uInt32Number"/>
 
 <!-- ICC 6d696e66 'minf' -->
-<xs:element name="multiplexTypeArrayTag" type="structType"/>
+<xs:element name="multiplexTypeArrayTag" type="structTypes"/>
 
 <!-- ICC 6d697772 'miwr' -->
 <xs:element name="measIlluminantRangeMbr" type="spectralRange"/>
@@ -334,16 +349,7 @@
 <xs:element name="brdfParamsPerChannelMbr" type="uInt16Number"/>
 
 <!-- ICC 70637320 'pcs ' -->
-<xs:element name="cinfPcsDataMbr" type=""/>
-  <xs:simpleType>
-    <xs:restriction>
-      <xs:enumeration type="uInt8NumberArray"/>
-      <xs:enumeration type="uInt16NumberArray"/>
-      <xs:enumeration type="float16NumberArray"/>
-      <xs:enumeration type="float32NumberArray"/>
-    </xs:restriction>
-  </xs:simpleType>
-</xs:element>
+<xs:element name="cinfPcsDataMbr" type="arrayTypes"/>
 
 <!-- ICC 70647363 'pdsc' -->
 <xs:element name="pinfProfileDescMbr" type="multiLocalizedUnicodeType"/>
@@ -371,29 +377,21 @@
 </xs:element>
 
 <!-- ICC 73706362 'spcb' -->
-<xs:element name="nmclSpectralOverBlackDataMbr"/>
-  <xs:simpleType>
+<xs:element name="nmclSpectralOverBlackDataMbr" type="ArrayTypes">
+  <xs:redefine name="ArrayTypes">
     <xs:restriction>
-      <xs:enumeration type="uInt8NumberArray"/>
-      <xs:enumeration type="uInt16NumberArray"/>
-      <xs:enumeration type="float16NumberArray"/>
-      <xs:enumeration type="float32NumberArray"/>
       <xs:enumeration type="sparseMatrixArrayType"/>
     </xs:restriction>
-  </xs:simpleType>
+  </xs:redefine>
 </xs:element>
 
 <!-- ICC 73706367 'spcg' Duplicates -->
-<xs:element name="nmclSpectralOverGrayDataMbr"/>
-  <xs:simpleType>
+<xs:element name="nmclSpectralOverGrayDataMbr" type="ArrayTypes">
+  <xs:redefine name="ArrayTypes">
     <xs:restriction>
-      <xs:enumeration type="uInt8NumberArray"/>
-      <xs:enumeration type="uInt16NumberArray"/>
-      <xs:enumeration type="float16NumberArray"/>
-      <xs:enumeration type="float32NumberArray"/>
       <xs:enumeration type="sparseMatrixArrayType"/>
     </xs:restriction>
-  </xs:simpleType>
+  </xs:redefine>
 </xs:element>
 
 <!-- ICC 73706563 'spec' -->
