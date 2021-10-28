@@ -1,0 +1,40 @@
+Tag Types - V4
+
+49434370 'ICCp'
+62666420 'bfd' 
+63726469 'crdi'
+64657673 'devs'
+7363726e 'scrn'
+
+--------------
+
+Tag Signatures - V4
+
+49434335 ‘ICC5’
+62666420 'bfd' 
+626b7074 'bkpt'
+63726469 'crdi'
+64657673 'devs'
+
+70733269 'ps2i'
+70733273 'ps2s'
+70736430 'psd0'
+70736431 'psd1'
+70736432 'psd2'
+70736433 'psd3'
+
+73637264 'scrd'
+7363726e 'scrn'
+
+--------------
+
+Tag Types - iccMAX
+ICC 646f7263 'dorc' imageStateData
+ICC 67646220 'gbd ' NOT-AVAILABLE 
+ICC 7a776d6c 'zxml' NOT-AVAILABLE 
+
+--------------
+
+Tag Signatures - iccMAX
+ICC 63696E66 'cinf'
+ICC 66756E63 'func'
