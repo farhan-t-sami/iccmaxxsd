@@ -65,7 +65,7 @@
 </xs:complexType>
 
 <!-- ICC 636C7574 'clut' CLUTElement -->
-<xs:complexType name="CLUT">
+<xs:complexType name="CLUTElement">
     <xs:sequence>
         <xs:element name="GridPoints" type="uInt8Number"/>    
         <xs:element name="TableData">			   
@@ -374,7 +374,7 @@
 </xs:element>
 
 <!-- ICC 78636c74 'xclt' extendedCLUTElement -->
-<xs:element name="xclt" type="signatureType"/>
+<xs:element name="extendedCLUTElement" type="signatureType"/>
 
 <!-- ICC 7a757438 'zut8' utf8ZipType -->
 <xs:element name="zut8" type="signatureType"/>

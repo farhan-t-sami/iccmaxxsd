@@ -1,0 +1,407 @@
+<!-- Profile Header -->
+<xs:element name="Header">
+    <xs:complexType>
+    <xs:sequence>
+        <xs:element ref="PreferredCMMType"/>
+        <xs:element ref="ProfileVersion"/>
+        <xs:element ref="ProfileDeviceClass"/>
+        <xs:element ref="DataColourSpace"/>
+        <xs:element ref="PCS"/>
+        <xs:element ref="CreationDateTime"/>
+        <xs:element ref="ProfileFileSignature"/>
+        <xs:element ref="PrimaryPlatform"/>
+        <xs:element ref="ProfileFlags"/>
+        <xs:element ref="DeviceManufacturer"/>
+        <xs:element ref="DeviceModel"/>
+        <xs:element ref="DeviceAttributes"/>
+        <xs:element ref="RenderingIntent"/>
+        <xs:element ref="PCSIlluminant"/>
+        <xs:element ref="ProfileCreator"/>
+        <xs:element ref="ProfileID"/>
+        <xs:sequence minOccurs="0">
+        <xs:element ref="SpectralPCS"/>
+        <xs:element ref="SpectralRange"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="BiSpectralRange"/>
+        <xs:element ref="MCS"/>
+        <xs:element ref="ProfileDeviceSubClass"/>
+    </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="PreferredCMMType">
+    <xs:simpleType>
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="ADBE"/>
+        <xs:enumeration value="ACMS"/>
+        <xs:enumeration value="appl"/>
+        <xs:enumeration value="CCMS"/>
+        <xs:enumeration value="UCCM"/>
+        <xs:enumeration value="UCMS"/>
+        <xs:enumeration value="EFI "/>
+        <xs:enumeration value="FF  "/>
+        <xs:enumeration value="EXAC"/>
+        <xs:enumeration value="HCMM"/>
+        <xs:enumeration value="argl"/>
+        <xs:enumeration value="LgoS"/>	
+        <xs:enumeration value="HDM "/>
+        <xs:enumeration value="lcms"/>
+        <xs:enumeration value="KCMS"/>
+        <xs:enumeration value="MCML"/>
+        <xs:enumeration value="WCS "/>
+        <xs:enumeration value="SIGN"/>
+        <xs:enumeration value="ONYX"/>
+        <xs:enumeration value="RICC"/>				  
+        <xs:enumeration value="RGMS"/>
+        <xs:enumeration value="SICC"/>
+        <xs:enumeration value="TCMM"/>
+        <xs:enumeration value="32BT"/>
+        <xs:enumeration value="vivo"/>
+        <xs:enumeration value="WTG "/>	
+        <xs:enumeration value="zc00"/>	
+        <xs:enumeration value=""/>
+    </xs:restriction>	
+    </xs:simpleType>	
+</xs:element>
+
+<xs:element name="ProfileVersion" type="xs:decimal"/>
+
+<xs:element name="ProfileDeviceClass">
+    <xs:simpleType>
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="spac"/>				  
+    </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+
+<xs:element name="DataColourSpace">
+    <xs:simpleType>
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="XYZ "/>
+        <xs:enumeration value="Lab "/>
+        <xs:enumeration value="Luv "/>
+        <xs:enumeration value="YCbr"/>
+        <xs:enumeration value="Yxy "/>
+        <xs:enumeration value="LMS "/>
+        <xs:enumeration value="RGB "/>
+        <xs:enumeration value="GRAY"/>
+        <xs:enumeration value="HSV "/>
+        <xs:enumeration value="HLS "/>
+        <xs:enumeration value="CMYK"/>
+        <xs:enumeration value="CMY "/>
+        <xs:enumeration value="2CLR"/>
+        <xs:enumeration value="3CLR"/>
+        <xs:enumeration value="4CLR"/>
+        <xs:enumeration value="5CLR"/>
+        <xs:enumeration value="6CLR"/>
+        <xs:enumeration value="7CLR"/>
+        <xs:enumeration value="8CLR"/>
+        <xs:enumeration value="9CLR"/>
+        <xs:enumeration value="ACLR"/>
+        <xs:enumeration value="BCLR"/>
+        <xs:enumeration value="CCLR"/>
+        <xs:enumeration value="DCLR"/>
+        <xs:enumeration value="ECLR"/>
+        <xs:enumeration value="FCLR"/>
+        <xs:enumeration value=""/>
+    </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+
+<xs:element name="PCS">
+    <xs:simpleType>
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="XYZ "/>
+        <xs:enumeration value="Lab "/>
+        <xs:enumeration value=""/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+
+<xs:element name="CreationDateTime" type="xs:dateTime"/>
+
+<xs:element name="ProfileFileSignature" type="xs:string" fixed="acsp"/>
+
+<xs:element name="PrimaryPlatform">
+    <xs:simpleType>
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="APPL"/>
+        <xs:enumeration value="MSFT"/>
+        <xs:enumeration value="SGI "/>
+        <xs:enumeration value="SUNW"/>
+        <xs:enumeration value=""/>			  
+    </xs:restriction>
+    </xs:simpleType>				
+</xs:element>
+
+<xs:element name="ProfileFlags">
+    <xs:complexType>
+    <xs:attribute name="EmbeddedInFile" use="required" type="xs:boolean"/>
+    <xs:attribute name="UseWithEmbeddedDataOnly" use="required" type="xs:boolean"/>
+    <xs:attribute name="MCSNeedsSubset" use="required" type="xs:boolean"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="DeviceManufacturer">
+    <xs:simpleType>
+    <xs:restriction base="xs:string">
+        <xs:length value="4"/>	  
+    </xs:restriction>
+    </xs:simpleType>	
+</xs:element>
+
+<xs:element name="DeviceModel">
+    <xs:simpleType>
+    <xs:restriction base="xs:string">
+        <xs:length value="4"/>	  
+    </xs:restriction>
+    </xs:simpleType>	
+</xs:element>
+
+<xs:element name="DeviceAttributes">
+    <xs:complexType>
+    <xs:attribute name="GlossyOrMatte" use="required" type="xs:boolean"/>
+    <xs:attribute name="MediaColour" use="required" type="xs:boolean"/>
+    <xs:attribute name="MediaPolarity" use="required" type="xs:boolean"/>
+    <xs:attribute name="ReflectiveOrTransparency" use="required" type="xs:boolean"/>
+    <xs:attribute name="VendorSpecific" type="Hex8Byte"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="RenderingIntent">
+    <xs:simpleType>
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="Perceptual"/>
+        <xs:enumeration value="Relative Colorimetric"/>
+        <xs:enumeration value="Saturation"/>
+        <xs:enumeration value="Absolute Colorimetric"/>		  
+    </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+
+<xs:element name="PCSIlluminant">
+    <xs:complexType>
+    <xs:sequence>
+        <xs:element ref="XYZNumber"/>
+    </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="ProfileCreator">
+    <xs:simpleType>
+    <xs:restriction base="xs:string">
+        <xs:length value="4"/>	  
+    </xs:restriction>
+    </xs:simpleType>	
+</xs:element>
+
+<xs:element name="ProfileID" type="xs:string"/>
+
+<xs:element name="SpectralPCS">
+    <xs:simpleType>
+    <xs:restriction base="xs:string">
+        <xs:length value="6"/>	  
+    </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+
+<xs:element name="SpectralRange">
+    <xs:complexType>
+    <xs:sequence>
+        <xs:element ref="Wavelengths"/>
+    </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="BiSpectralRange">
+    <xs:complexType mixed="true">
+    <xs:sequence>
+        <xs:element ref="Wavelengths"/>
+    </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="MCS">
+    <xs:simpleType>
+    <xs:restriction base="xs:string">
+        <xs:length value="6"/>	  
+    </xs:restriction>
+    </xs:simpleType>	
+</xs:element>
+
+<xs:element name="ProfileDeviceSubClass" type="xs:string" minInclusive="0" maxInclusive="1"/>
+
+<!-- Required Tags -->
+
+<!-- 41324231 'A2B1'  -->
+<xs:complexType name="AToB1Tag"/>
+    <xsd:choice>
+        <xsd:element type="lutAtoBTypes"/>
+        <xsd:element type="multiProcessElementType"/>
+    </xsd:choice>
+</xs:complexType>
+
+<xsd:complexType name="lutAtoBTypes">
+    <xsd:choice>
+        <xsd:element minOccurs="0" name="lut8Type" type="lut8Type"/>
+        <xsd:element minOccurs="0" name="lut16Type" type="lut16Type" />
+        <xsd:element minOccurs="0" name="lutAToBType" type="lutAToBType" />
+    </xsd:choice>
+</xsd:complexType>
+
+<!-- 42324131 'B2A1'  -->
+<xs:complexType name="BToA1Tag"/>
+    <xsd:choice>
+        <xsd:element type="lutBtoATypes"/>
+        <xsd:element type="multiProcessElementType"/>
+    </xsd:choice>
+</xs:complexType>
+
+<xsd:complexType name="lutBtoATypes">
+    <xsd:choice>
+        <xsd:element minOccurs="0" name="lut8Type" type="lut8Type"/>
+        <xsd:element minOccurs="0" name="lut16Type" type="lut16Type" />
+        <xsd:element minOccurs="0" name="lutBToAType" type="lutBToAType" />
+    </xsd:choice>
+</xsd:complexType>
+
+<!-- ICC 63327370 'c2sp' -->
+<xs:element name="customToStandardPccTag" type="multiProcessElementType"/>
+
+<!-- ICC 73326370 's2cp' -->
+<xs:element name="standardToCustomPccTag" type="multiProcessElementType"/>
+
+  <xs:complexType name="multiProcessElementType">
+    <xs:sequence>
+      <xs:element ref="multiProcessElementType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="multiProcessElementType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="MultiProcessElements"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MultiProcessElements">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="CurveSetElement"/>
+        <xs:element ref="MatrixElement" maxOccurs="3"/>
+        <xs:element ref="CLUTElement"/>
+        <xs:element name="extendedCLUTElement" type="signatureType"/>
+        <xs:element ref="tintArrayElement"/>
+      </xs:choice>
+      <xs:attribute name="InputChannels" use="required" type="xs:integer"/>
+      <xs:attribute name="OutputChannels" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+ 
+  <xs:element name="CurveSetElement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="SegmentedCurve"/>
+      </xs:sequence>
+      <xs:attribute name="InputChannels" use="required" type="xs:integer"/>
+      <xs:attribute name="OutputChannels" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SegmentedCurve">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="FormulaSegment"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FormulaSegment">
+    <xs:complexType mixed="true">
+      <xs:attribute name="End" use="required"/>
+      <xs:attribute name="FunctionType" use="required" type="xs:integer"/>
+      <xs:attribute name="Start" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MatrixElement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="MatrixData"/>
+      </xs:sequence>
+      <xs:attribute name="InputChannels" use="required" type="xs:integer"/>
+      <xs:attribute name="OutputChannels" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MatrixData" type="xs:string"/>
+  <xs:complexType name="MemberTags">
+    <xs:sequence>
+      <xs:element ref="MemberTags"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MemberTags">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="tnt0PcsDataMbr"/>
+        <xs:element minOccurs="0" ref="nmclNameNmClrMbr"/>
+        <xs:element minOccurs="0" ref="nmclTintMbr"/>
+        <xs:element minOccurs="0" ref="nmclPcsDataMbr"/>
+        <xs:choice>
+          <xs:element ref="nmclSpectralDataMbr"/>
+          <xs:element ref="tnt0SpectralDataMbr"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tnt0PcsDataMbr" type="float16ArrayType"/>
+  <xs:element name="nmclNameNmClrMbr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="utf8Type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="utf8Type">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TagSignature" type="signatureType" fixed="utf8"/>
+        <xs:element name="TextData" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nmclTintMbr" type="float16ArrayType"/>
+  <xs:element name="nmclPcsDataMbr" type="float16ArrayType"/>
+  <xs:element name="nmclSpectralDataMbr" type="float16ArrayType"/>
+  <xs:element name="tnt0SpectralDataMbr" type="float16ArrayType"/>
+
+  <xs:complexType name="CLUTElement">
+      <xs:sequence>
+          <xs:element name="GridPoints" type="uInt8Number"/>    
+          <xs:element name="TableData">			   
+              <xs:simpleType>
+              <xs:union memberTypes="Table8 Table16"/>
+              </xs:simpleType>			  
+          </xs:element>   
+      </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="tintArrayElement"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="uInt8Number"/>
+      <xs:enumeration type="uInt16Number"/>
+      <xs:enumeration type="float32Number"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<!-- ICC 7376636e 'svcn' -->
+<xs:element name="spectralViewingConditionsTag" type="spectralViewingConditionsType"/>
+
+<xs:element name="spectralViewingConditionsType">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="StdObserver"/>
+            <xs:element ref="IlluminantXYZ"/>
+            <xs:element ref="StdIlluminant"/>
+            <xs:element ref="IlluminantSPD"/>
+            <xs:element ref="SurroundXYZ"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
