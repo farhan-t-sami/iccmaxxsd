@@ -66,6 +66,7 @@
 
 <xs:element name="ProfileVersion" type="xs:decimal"/>
 
+<!-- Profile class -->
 <xs:element name="ProfileDeviceClass">
     <xs:simpleType>
     <xs:restriction base="xs:string">
@@ -74,40 +75,17 @@
     </xs:simpleType>
 </xs:element>
 
+<!-- Only XYZ or Lab required -->
 <xs:element name="DataColourSpace">
     <xs:simpleType>
     <xs:restriction base="xs:string">
         <xs:enumeration value="XYZ "/>
         <xs:enumeration value="Lab "/>
-        <xs:enumeration value="Luv "/>
-        <xs:enumeration value="YCbr"/>
-        <xs:enumeration value="Yxy "/>
-        <xs:enumeration value="LMS "/>
-        <xs:enumeration value="RGB "/>
-        <xs:enumeration value="GRAY"/>
-        <xs:enumeration value="HSV "/>
-        <xs:enumeration value="HLS "/>
-        <xs:enumeration value="CMYK"/>
-        <xs:enumeration value="CMY "/>
-        <xs:enumeration value="2CLR"/>
-        <xs:enumeration value="3CLR"/>
-        <xs:enumeration value="4CLR"/>
-        <xs:enumeration value="5CLR"/>
-        <xs:enumeration value="6CLR"/>
-        <xs:enumeration value="7CLR"/>
-        <xs:enumeration value="8CLR"/>
-        <xs:enumeration value="9CLR"/>
-        <xs:enumeration value="ACLR"/>
-        <xs:enumeration value="BCLR"/>
-        <xs:enumeration value="CCLR"/>
-        <xs:enumeration value="DCLR"/>
-        <xs:enumeration value="ECLR"/>
-        <xs:enumeration value="FCLR"/>
-        <xs:enumeration value=""/>
     </xs:restriction>
     </xs:simpleType>
 </xs:element>
 
+<!-- Matching requirements of Data color space -->
 <xs:element name="PCS">
     <xs:simpleType>
     <xs:restriction base="xs:string">
@@ -134,11 +112,12 @@
     </xs:simpleType>				
 </xs:element>
 
+<!-- Profile flags value = 0 -->
 <xs:element name="ProfileFlags">
     <xs:complexType>
-    <xs:attribute name="EmbeddedInFile" use="required" type="xs:boolean"/>
-    <xs:attribute name="UseWithEmbeddedDataOnly" use="required" type="xs:boolean"/>
-    <xs:attribute name="MCSNeedsSubset" use="required" type="xs:boolean"/>
+      <xs:attribute name="EmbeddedInFile" use="required" type="xs:boolean" value="0"/>
+      <xs:attribute name="UseWithEmbeddedDataOnly" use="required" type="xs:boolean" value="0"/>
+      <xs:attribute name="MCSNeedsSubset" use="required" type="xs:boolean" value="0"/>
     </xs:complexType>
 </xs:element>
 
@@ -158,13 +137,14 @@
     </xs:simpleType>	
 </xs:element>
 
+<!-- Device attributes' required content is either 0 or 1 and attributes in this tag are of type boolean -->
 <xs:element name="DeviceAttributes">
     <xs:complexType>
-    <xs:attribute name="GlossyOrMatte" use="required" type="xs:boolean"/>
-    <xs:attribute name="MediaColour" use="required" type="xs:boolean"/>
-    <xs:attribute name="MediaPolarity" use="required" type="xs:boolean"/>
-    <xs:attribute name="ReflectiveOrTransparency" use="required" type="xs:boolean"/>
-    <xs:attribute name="VendorSpecific" type="Hex8Byte"/>
+      <xs:attribute name="GlossyOrMatte" use="required" type="xs:boolean"/>
+      <xs:attribute name="MediaColour" use="required" type="xs:boolean"/>
+      <xs:attribute name="MediaPolarity" use="required" type="xs:boolean"/>
+      <xs:attribute name="ReflectiveOrTransparency" use="required" type="xs:boolean"/>
+      <xs:attribute name="VendorSpecific" type="Hex8Byte"/>
     </xs:complexType>
 </xs:element>
 
@@ -197,14 +177,16 @@
 
 <xs:element name="ProfileID" type="xs:string"/>
 
+<!-- Spectral PCS value = 0 -->
 <xs:element name="SpectralPCS">
     <xs:simpleType>
     <xs:restriction base="xs:string">
-        <xs:length value="6"/>	  
+        <xs:length value="0"/>	  
     </xs:restriction>
     </xs:simpleType>
 </xs:element>
 
+<!-- Spectral range value = 0 -->
 <xs:element name="SpectralRange">
     <xs:complexType>
     <xs:sequence>
@@ -213,6 +195,7 @@
     </xs:complexType>
 </xs:element>
 
+<!-- Bispectral PCS value = 0 -->
 <xs:element name="BiSpectralRange">
     <xs:complexType mixed="true">
     <xs:sequence>
@@ -221,19 +204,23 @@
     </xs:complexType>
 </xs:element>
 
+<!-- MCS value = 0 -->
 <xs:element name="MCS">
     <xs:simpleType>
     <xs:restriction base="xs:string">
-        <xs:length value="6"/>	  
+        <xs:length value="0"/>	  
     </xs:restriction>
     </xs:simpleType>	
 </xs:element>
 
+<!-- Profile subclass -->
+<!-- Major version = 2 (maxInclusive) and minor version = 0 (minInclusive) -->
 <xs:element name="ProfileDeviceSubClass" type="xs:string" minInclusive="0" maxInclusive="2"/>
 
 <!-- Required Tags -->
 
 <!-- 41324231 'A2B1'  -->
+<!-- LutAToBType or	multiProcessElementType	 -->
 <xs:complexType name="AToB1Tag"/>
     <xsd:choice>
         <xsd:element type="lutAtoBTypes"/>
@@ -250,6 +237,7 @@
 </xsd:complexType>
 
 <!-- 42324131 'B2A1'  -->
+<!-- LutBToAType	or	multiProcessElementType		 -->
 <xs:complexType name="BToA1Tag"/>
     <xsd:choice>
         <xsd:element type="lutBtoATypes"/>
@@ -266,11 +254,14 @@
 </xsd:complexType>
 
 <!-- ICC 63327370 'c2sp' -->
+<!-- multiProcessElementType -->
 <xs:element name="customToStandardPccTag" type="multiProcessElementType"/>
 
 <!-- ICC 73326370 's2cp' -->
+<!-- multiProcessElementType -->
 <xs:element name="standardToCustomPccTag" type="multiProcessElementType"/>
 
+<!-- multiProcessElementType -->
   <xs:complexType name="multiProcessElementType">
     <xs:sequence>
       <xs:element ref="multiProcessElementType"/>
@@ -382,18 +373,18 @@
   </xs:complexType>
 
   <xs:element name="tintArrayElement"/>
-  <xs:simpleType>
-    <xs:restriction>
-      <xs:enumeration type="uInt8Number"/>
-      <xs:enumeration type="uInt16Number"/>
-      <xs:enumeration type="float32Number"/>
-    </xs:restriction>
-  </xs:simpleType>
-</xs:element>
+    <xs:simpleType>
+      <xs:restriction>
+        <xs:enumeration type="uInt8Number"/>
+        <xs:enumeration type="uInt16Number"/>
+        <xs:enumeration type="float32Number"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
 
 <!-- ICC 7376636e 'svcn' -->
 <xs:element name="spectralViewingConditionsTag" type="spectralViewingConditionsType"/>
-
+<!-- Structure	defining	observer,	illuminant	and	 (optionally)	surround -->
 <xs:element name="spectralViewingConditionsType">
     <xs:complexType>
         <xs:sequence>
