@@ -91,7 +91,6 @@
     <xs:restriction base="xs:string">
         <xs:enumeration value="XYZ "/>
         <xs:enumeration value="Lab "/>
-        <xs:enumeration value=""/>
         </xs:restriction>
     </xs:simpleType>
 </xs:element>
@@ -194,6 +193,15 @@
     </xs:sequence>
     </xs:complexType>
 </xs:element>
+
+<!-- startWavelength	:	endWavelength	:	numSteps	 -->
+  <xs:element name="Wavelengths">
+    <xs:complexType>
+      <xs:attribute name="end" use="required" type="xs:decimal"/>
+      <xs:attribute name="start" use="required" type="xs:decimal"/>
+      <xs:attribute name="steps" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
 
 <!-- Bispectral PCS value = 0 -->
 <xs:element name="BiSpectralRange">

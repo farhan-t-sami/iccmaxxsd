@@ -66,26 +66,44 @@
 
 <xs:element name="ProfileVersion" type="xs:decimal"/>
 
-<!-- Profile class -->
+<!-- Profile class = prtr -->
 <xs:element name="ProfileDeviceClass">
     <xs:simpleType>
     <xs:restriction base="xs:string">
-        <xs:enumeration value="spac"/>				  
+        <xs:enumeration value="prtr"/>			  
     </xs:restriction>
     </xs:simpleType>
 </xs:element>
 
-<!-- Only XYZ or Lab required -->
+<!-- Data color space = ‘CMYK’	(434d594bh)	or	‘CMY	‘	(434d5920h)	or	‘RGB‘	(58595a20h)	or	‘GRAY’	(47524159h)	or	‘XCLR’	or	‘ncXXXX	(6e63XXXXh)	 -->
 <xs:element name="DataColourSpace">
     <xs:simpleType>
     <xs:restriction base="xs:string">
-        <xs:enumeration value="XYZ "/>
-        <xs:enumeration value="Lab "/>
+        <xs:enumeration value="RGB "/>
+        <xs:enumeration value="GRAY"/>
+        <xs:enumeration value="CMYK"/>
+        <xs:enumeration value="CMY "/>
+        <xs:enumeration value="2CLR"/>
+        <xs:enumeration value="3CLR"/>
+        <xs:enumeration value="4CLR"/>
+        <xs:enumeration value="5CLR"/>
+        <xs:enumeration value="6CLR"/>
+        <xs:enumeration value="7CLR"/>
+        <xs:enumeration value="8CLR"/>
+        <xs:enumeration value="9CLR"/>
+        <xs:enumeration value="ACLR"/>
+        <xs:enumeration value="BCLR"/>
+        <xs:enumeration value="CCLR"/>
+        <xs:enumeration value="DCLR"/>
+        <xs:enumeration value="ECLR"/>
+        <xs:enumeration value="FCLR"/>
+        <xs:enumeration value="XCLR"/>
+        <xs:enumeration value="ncXXXX"/>
     </xs:restriction>
     </xs:simpleType>
 </xs:element>
 
-<!-- Matching requirements of Data color space -->
+<!-- ‘Lab’	(4c616220h)	or	‘XYZ‘	(58595a20h) -->
 <xs:element name="PCS">
     <xs:simpleType>
     <xs:restriction base="xs:string">
@@ -94,7 +112,6 @@
         </xs:restriction>
     </xs:simpleType>
 </xs:element>
-
 <xs:element name="CreationDateTime" type="xs:dateTime"/>
 
 <xs:element name="ProfileFileSignature" type="xs:string" fixed="acsp"/>
@@ -158,11 +175,29 @@
     </xs:simpleType>
 </xs:element>
 
+<!-- Normalized	XYZ	tristimulus	values	corresponding	to	illuminant	and	observer in	spectralViewingConditionsTag -->
 <xs:element name="PCSIlluminant">
     <xs:complexType>
     <xs:sequence>
         <xs:element ref="XYZNumber"/>
     </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="spectralViewingConditionsTag" type="spectralViewingConditionsType"/>
+
+<!-- ICC 7376636e 'svcn' spectralViewingConditions -->
+<xs:element name="spectralViewingConditionsType">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="StdObserver"/>
+            <xs:element ref="IlluminantXYZ"/>
+            <xs:element ref="ObserverFuncs"/>
+            <xs:element ref="StdIlluminant"/>
+            <xs:element ref="ColorTemperature"/>
+            <xs:element ref="IlluminantSPD"/>
+            <xs:element ref="SurroundXYZ"/>
+        </xs:sequence>
     </xs:complexType>
 </xs:element>
 
@@ -176,16 +211,16 @@
 
 <xs:element name="ProfileID" type="xs:string"/>
 
-<!-- Spectral PCS value = 0 -->
+<!-- Might need to update this  -->
+<!-- ‘rsXXXX’	(7273XXXXh)	or	‘tsXXXX’	(7473XXXXh)	 -->
 <xs:element name="SpectralPCS">
     <xs:simpleType>
     <xs:restriction base="xs:string">
-        <xs:length value="0"/>	  
+        <xs:length value="6"/>	  
     </xs:restriction>
     </xs:simpleType>
 </xs:element>
 
-<!-- Spectral range value = 0 -->
 <xs:element name="SpectralRange">
     <xs:complexType>
     <xs:sequence>
@@ -194,11 +229,11 @@
     </xs:complexType>
 </xs:element>
 
-<!-- Bispectral PCS value = 0 -->
+<!-- Required value is 0 -->
 <xs:element name="BiSpectralRange">
     <xs:complexType mixed="true">
     <xs:sequence>
-        <xs:element ref="Wavelengths"/>
+        <xs:element ref="Wavelengths" value="0"/>
     </xs:sequence>
     </xs:complexType>
 </xs:element>
@@ -222,52 +257,88 @@
 </xs:element>
 
 <!-- Profile subclass -->
-<!-- Major version = 2 (maxInclusive) and minor version = 0 (minInclusive) -->
-<xs:element name="ProfileDeviceSubClass" type="xs:string" minInclusive="0" maxInclusive="2"/>
+<!-- Major version = 1 (maxInclusive) and minor version = 0 (minInclusive) -->
+<xs:element name="ProfileDeviceSubClass" type="xs:string" minInclusive="0" maxInclusive="1"/>
 
 <!-- Required Tags -->
 
 <!-- 41324231 'A2B1'  -->
-<!-- LutAToBType or	multiProcessElementType	 -->
-<xs:complexType name="AToB1Tag"/>
-    <xsd:choice>
-        <xsd:element type="lutAtoBTypes"/>
-        <xsd:element type="multiProcessElementType"/>
-    </xsd:choice>
-</xs:complexType>
-
-<xsd:complexType name="lutAtoBTypes">
-    <xsd:choice>
-        <xsd:element minOccurs="0" name="lut8Type" type="lut8Type"/>
-        <xsd:element minOccurs="0" name="lut16Type" type="lut16Type" />
-        <xsd:element minOccurs="0" name="lutAToBType" type="lutAToBType" />
-    </xsd:choice>
-</xsd:complexType>
+<!-- AToB1Tag	or	AToB3Tag -->
+<!-- A2B3 not available -->
+<xs:element name="AToB1Tag" type="multiProcessElementType"/>
 
 <!-- 42324131 'B2A1'  -->
-<!-- LutBToAType	or	multiProcessElementType		 -->
-<xs:complexType name="BToA1Tag"/>
-    <xsd:choice>
-        <xsd:element type="lutBtoATypes"/>
-        <xsd:element type="multiProcessElementType"/>
-    </xsd:choice>
-</xs:complexType>
+<!-- BToA1Tag	or	BToA3Tag -->
+<!-- B2A3 not available -->
+<xs:element name="BToA1Tag" type="multiProcessElementType"/>
 
-<xsd:complexType name="lutBtoATypes">
-    <xsd:choice>
-        <xsd:element minOccurs="0" name="lut8Type" type="lut8Type"/>
-        <xsd:element minOccurs="0" name="lut16Type" type="lut16Type" />
-        <xsd:element minOccurs="0" name="lutBToAType" type="lutBToAType" />
-    </xsd:choice>
-</xsd:complexType>
+<!-- 44324233 ‘D2B3’  -->
+<xs:element name="DToB3Tag" type="multiProcessElementType"/>
+
+<!-- ICC 73777074 'swpt' -->
+<!-- float16ArrayType,	float32ArrayType,	or	 uInt16ArrayType	containing	spectral	PCS		values	associated	with	media	white	point	 -->
+<xs:element name="spectralWhitePointTag" type="signatureType"/>
+  <xs:simpleType>
+    <xs:restriction>
+      <xs:enumeration type="float16NumberArray"/>
+      <xs:enumeration type="float32NumberArray"/>
+      <xs:enumeration type="uInt16ArrayType"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
 
 <!-- ICC 63327370 'c2sp' -->
-<!-- multiProcessElementType -->
-<xs:element name="customToStandardPccTag" type="multiProcessElementType"/>
+<xs:element name="customToStandardPccTag" type="multiProcessElementsType"/>
 
 <!-- ICC 73326370 's2cp' -->
-<!-- multiProcessElementType -->
-<xs:element name="standardToCustomPccTag" type="multiProcessElementType"/>
+<xs:element name="standardToCustomPccTag" type="multiProcessElementsType"/>
+
+<!-- ICC 7376636e 'svcn' -->
+<xs:element name="spectralViewingConditionsTag" type="spectralViewingConditionsType"/>
+<!-- Structure	defining	observer,	illuminant	and	 (optionally)	surround -->
+<xs:element name="spectralViewingConditionsType">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="StdObserver"/>
+            <xs:element ref="IlluminantXYZ"/>
+            <xs:element ref="StdIlluminant"/>
+            <xs:element ref="IlluminantSPD"/>
+            <xs:element ref="SurroundXYZ"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- colorantInfoTag not available in specifications  -->
+
+<!-- Additional optional tags -->
+
+<!-- ‘A2Bx’	where	x is different	from tag	used	in	Table 4	 -->
+<!-- 41324230 'A2B0'  -->
+<xs:element name="AToB0Tag" type="multiProcessElementsType">
+
+<!-- 41324232 'A2B2'  -->
+<xs:element name="AToB2Tag" type="multiProcessElementsType"/>
+
+<!-- ‘B2Dx’	where	x is different	from tag	used	in	Table 4	 -->
+
+<!-- 42324430 ‘B2D0’  -->
+<xs:element name="BToD0Tag" type="multiProcessElementType"/>
+
+<!-- 42324432 ‘B2D2’  -->
+<xs:element name="BToD2Tag" type="multiProcessElementType"/>
+
+<!-- 42324433 ‘B2D3’ -->
+<xs:element name="BToD3Tag" type="multiProcessElementType"/>
+
+<!-- ‘D2Bx’	where	x≠3 -->
+<!-- 44324230 ‘D2B0’  -->
+<xs:element name="DToB0Tag" type="multiProcessElementType"/>
+
+<!-- 44324231 ‘D2B1’  -->
+<xs:element name="DToB1Tag" type="multiProcessElementType"/>
+
+<!-- 44324232 ‘D2B2’  -->
+<xs:element name="DToB2Tag" type="multiProcessElementType"/>
 
 <!-- multiProcessElementType -->
   <xs:complexType name="multiProcessElementType">
@@ -390,17 +461,59 @@
     </xs:simpleType>
   </xs:element>
 
-<!-- ICC 7376636e 'svcn' -->
-<xs:element name="spectralViewingConditionsTag" type="spectralViewingConditionsType"/>
-<!-- Structure	defining	observer,	illuminant	and	 (optionally)	surround -->
-<xs:element name="spectralViewingConditionsType">
+<!-- gamutBoundaryDescriptionXTag -->
+ <!-- ‘gbdX’	where	X	is	associated	with	a	rendering	intent	 -->
+  <xs:element name="gamutBoundaryDescription1Tag">
     <xs:complexType>
-        <xs:sequence>
-            <xs:element ref="StdObserver"/>
-            <xs:element ref="IlluminantXYZ"/>
-            <xs:element ref="StdIlluminant"/>
-            <xs:element ref="IlluminantSPD"/>
-            <xs:element ref="SurroundXYZ"/>
-        </xs:sequence>
+      <xs:sequence>
+        <xs:element ref="gamutBoundaryDescType"/>
+      </xs:sequence>
     </xs:complexType>
-</xs:element>
+  </xs:element>
+  <xs:element name="gamutBoundaryDescType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Vertices"/>
+        <xs:element ref="Triangles"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Vertices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PCSValues"/>
+        <xs:element ref="DeviceValues"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PCSValues">
+    <xs:complexType mixed="true">
+      <xs:attribute name="channels" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeviceValues">
+    <xs:complexType mixed="true">
+      <xs:attribute name="channels" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Triangles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="T"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="T" type="xs:string"/>
+  <xs:element name="Wavelengths">
+    <xs:complexType>
+      <xs:attribute name="end" use="required" type="xs:decimal"/>
+      <xs:attribute name="start" use="required" type="xs:decimal"/>
+      <xs:attribute name="steps" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- 63686164 'chad' chromaticAdaptationTag -->
+<xs:element name="chromaticAdaptationTag" type="s15Fixed16ArrayType"/>
+
+<!-- 636c726f 'clro' colorantOrderTag -->
+<xs:element name="colorantOrderTag" type="colorantOrderType"/>
